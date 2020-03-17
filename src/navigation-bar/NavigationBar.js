@@ -1,41 +1,32 @@
 import React from 'react';
 
+import route from '../route';
+
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 
-function NavigationBar() {
+import { Link } from "react-router-dom";
+
+function NavigationBar(props) {
   return (
     <div className="NavigationBar">
       <Navbar bg="light" expand="lg">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            {pageList.map(parent => (<NavDropdown key={parent.id} title={parent.parentPage}>
-              { parent.childPages.map((child, index) => (<NavDropdown.Item key={index} onClick={switchPage}>{ child }</NavDropdown.Item>))}
-            </NavDropdown>))}
+            {route.map(route => (<Link className="nav-link" key={route.id} to={route.url}>{route.name}</Link>))}
           </Nav>
           <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
+            <FormControl type="text" placeholder="PT. Sumber Bahagia" className="mr-sm-2" disabled />
+            <Button variant="outline-secondary">Log Out</Button>
           </Form>
         </Navbar.Collapse>
       </Navbar>
     </div>
   );
 }
-
-const pageList = [
-  { id: 1, parentPage: 'Kontrol', childPages: ['Kandang', 'Hewan'] },
-  { id: 2, parentPage: 'Stock', childPages: ['Pakan', 'Vitamin'] },
-  { id: 3, parentPage: 'Pekerja', childPages: ['Data', 'Kontrak'] },
-  { id: 4, parentPage: 'Jadwal', childPages: ['Pekerja', 'Panen', 'Servis'] },
-  { id: 5, parentPage: 'Laporan', childPages: ['Panen', 'Anomali', 'Biaya'] }
-];
-
-const switchPage = () => console.log('switch route');
 
 export default NavigationBar;
