@@ -8,12 +8,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import NavigationBar from './navigation-bar/NavigationBar';
-import Warehouse from './warehouse/Warehouse';
-import Transport from './transport/Transport';
-import Transaction from './transaction/Transaction';
-import Employee from './employee/Employee';
-import Order from './order/Order';
-import Invoice from './invoice/Invoice';
+import CheckIn from './check-in/CheckIn';
 
 function App() {
   return (
@@ -21,26 +16,11 @@ function App() {
       <Router>
         <NavigationBar />
         <Switch>
-          <Route path="/warehouse">
-            <Warehouse />
+          <Route path="/check-in/:type">
+            <CheckIn />
           </Route>
-          <Route path="/transport">
-            <Transport />
-          </Route>
-          <Route path="/transaction">
-            <Transaction />
-          </Route>
-          <Route path="/employee">
-            <Employee />
-          </Route>
-          <Route path="/order">
-            <Order />
-          </Route>
-          <Route path="/invoice">
-            <Invoice />
-          </Route>
-          <Route path="/">
-            <Warehouse />
+          <Route path="*">
+            Not found
           </Route>
         </Switch>
       </Router>
