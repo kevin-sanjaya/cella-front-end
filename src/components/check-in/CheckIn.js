@@ -2,17 +2,17 @@ import React from 'react';
 
 import { useParams } from "react-router-dom";
 
-import Member from "./Member";
-import Trainer from "./Trainer";
+import CheckInMember from "./CheckInMember";
+import CheckInTrainer from "./CheckInTrainer";
 
 function CheckIn() {
     let { type } = useParams();
 
     if (type === 'member')
-        return (<Member />);
+        return (<CheckInMember />);
     
     else if (type === 'trainer')
-        return (<Trainer />);  
+        return (<CheckInTrainer />);
 }
 
 export default CheckIn;

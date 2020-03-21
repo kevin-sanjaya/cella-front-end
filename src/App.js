@@ -1,14 +1,11 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import NavigationBar from './navigation-bar/NavigationBar';
-import CheckIn from './check-in/CheckIn';
+import NavigationBar from './components/navigation-bar/NavigationBar';
+import CheckIn from './components/check-in/CheckIn';
 
 function App() {
   return (
@@ -27,5 +24,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
