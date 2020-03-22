@@ -5,7 +5,7 @@
         "memberSubscriptionTier": "Bronze",
         "memberExpiryDate": "01/12/2022",
         "memberDateOfBirth": "03/11/1990",
-        "memberAvatarPicture": "../../assets/mock-avatar.svg"
+        "memberAvatarSrc": "mock-avatar.svg"
     },
     {
         "memberId": "421664900455",
@@ -13,14 +13,14 @@
         "memberSubscriptionTier": "Silver",
         "memberExpiryDate": "15/08/2020",
         "memberDateOfBirth": "15/02/2020",
-        "memberAvatarPicture": "../../assets/mock-avatar.svg"
+        "memberAvatarSrc": "mock-avatar.svg"
     },
     {
-        "memberId": "1234566789012",
-        "memberName": "Gusmana Bakti",
+        "memberId": "123456789012",
+        "memberName": "Edo Bastian",
         "memberSubscriptionTier": "Gold",
         "memberExpiryDate": "01/02/2021",
         "memberDateOfBirth": "28/08/2021",
-        "memberAvatarPicture": "../../assets/mock-avatar.svg"
+        "memberAvatarSrc": "mock-avatar.svg"
     }
 ]
