@@ -1,14 +1,11 @@
 import React from 'react';
-
 import route from '../../route';
-
 import Navbar from 'react-bootstrap/Navbar';
 import Image from 'react-bootstrap/Image'
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import Dropdown from 'react-bootstrap/Dropdown';
-
 import { LinkContainer } from 'react-router-bootstrap'
 
 function NavigationBar() {

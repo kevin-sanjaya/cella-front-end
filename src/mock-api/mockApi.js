@@ -1,4 +1,5 @@
 import members from './members/members.json';
+import memberById from './members/member-by-id.json';
 
 const fetch = (mockData, time = 0) => {
     return new Promise(resolve => {
@@ -9,7 +10,10 @@ const fetch = (mockData, time = 0) => {
 };
 
 export default {
-    fetchMembers() {
-        return fetch(members, 2000)
+    fetchMembers() { // TODO: /members
+        return fetch(members, 2000);
+    },
+    fetchMemberById(id) { // TODO: /members/:id
+        return fetch(memberById, 2000);
     }
 }

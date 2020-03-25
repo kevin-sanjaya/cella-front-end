@@ -1,0 +1,8 @@
+{
+    "memberId": "123456789012",
+    "memberName": "Edo Bastian",
+    "memberSubscriptionTier": "Gold",
+    "memberExpiryDate": "01/02/2021",
+    "memberDateOfBirth": "28/08/2021",
+    "memberAvatarSrc": "mock-avatar.svg"
+}

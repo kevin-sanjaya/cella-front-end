@@ -12,10 +12,10 @@ function LoadingSpinner() {
 
 const loadingSpinnerStyle = {
     margin: '80px'
-}
+};
 
 const textStyle = {
     marginTop: '8px'
-}
+};
 
 export default LoadingSpinner;

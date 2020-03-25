@@ -1,21 +1,5 @@
 [
     {
-        "memberId": "501332212102",
-        "memberName": "Gusmana Bakti",
-        "memberSubscriptionTier": "Bronze",
-        "memberExpiryDate": "01/12/2022",
-        "memberDateOfBirth": "03/11/1990",
-        "memberAvatarSrc": "mock-avatar.svg"
-    },
-    {
-        "memberId": "421664900455",
-        "memberName": "Ruth Dewi Pramana",
-        "memberSubscriptionTier": "Silver",
-        "memberExpiryDate": "15/08/2020",
-        "memberDateOfBirth": "15/02/2020",
-        "memberAvatarSrc": "mock-avatar.svg"
-    },
-    {
         "memberId": "123456789012",
         "memberName": "Edo Bastian",
         "memberSubscriptionTier": "Gold",

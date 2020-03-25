@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { useParams } from "react-router-dom";
-
 import CheckInMember from "./check-in-member/CheckInMember";
 import CheckInTrainer from "./CheckInTrainer";
 
@@ -13,6 +11,9 @@ function CheckIn() {
     
     else if (type === 'trainer')
         return (<CheckInTrainer />);
+    
+    else
+        return 'Not Found';
 }
 
 export default CheckIn;

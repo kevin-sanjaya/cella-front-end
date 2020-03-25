@@ -1,24 +1,21 @@
 import { FETCH_MEMBER_BY_ID } from "./actionTypes";
-
 import mockApi from '../mock-api/mockApi';
 
-export const fetchMemberById = member => ({
-    type: FETCH_MEMBER_BY_ID,
-    payload: { member }
+export const callReducerForMembers = (type, payload) => ({
+    type: type,
+    payload: payload
 });
 
-// TODO: switch to api call soon instead of filtering mock response
-export const fetchMemberByIdService = (id, callback) => {
-    return (dispatch) => {
-        mockApi.fetchMembers()
-            .then(members => {
-                dispatch(fetchMemberById(members.find(member => member.memberId === id)));
+export const fetchMemberByIdService = (id, callback) => { // TODO: change to axios
+    return dispatch => {
+        mockApi.fetchMemberById(id)
+            .then(member => {
+                dispatch(callReducerForMembers(FETCH_MEMBER_BY_ID, member));
                 callback(true);
             })
             .catch(err => {
                 console.log(err);
-                dispatch(fetchMemberById(undefined));
                 callback(false);
             })
     };
-}
+};
