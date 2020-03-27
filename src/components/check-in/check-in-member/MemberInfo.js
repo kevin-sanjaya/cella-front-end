@@ -7,11 +7,11 @@ function MemberInfo(props) {
     let avatarSrc = require(`../../../assets/${props.member.memberAvatarSrc}`);
 
     return (
-        <Card style={memberCardStyle}>
+        <Card style={memberInfoStyle}>
             <Card.Img variant="top" src={avatarSrc} style={memberAvatarStyle} />
             <Card.Body>
                 <Card.Title>{props.member.memberName}</Card.Title>
-                <Table style={memberInfoStyle} borderless>
+                <Table style={memberInfoTableStyle} borderless>
                     <tbody style={{borderRadius: '25px'}}>
                         <tr>
                             <td><strong>Nomor Identitas Member</strong></td>
@@ -38,11 +38,11 @@ function MemberInfo(props) {
     );
 }
 
-const memberCardStyle = {
+const memberInfoStyle = {
     marginTop: '24px'
 };
 
-const memberInfoStyle = {
+const memberInfoTableStyle = {
     width: '55%',
     margin: 'auto',
     textAlign: 'left',

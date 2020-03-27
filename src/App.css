@@ -3,4 +3,5 @@
 .App {
   text-align: center;
   font-family: 'Baloo 2', cursive;
+  min-width: 1280px;
 }

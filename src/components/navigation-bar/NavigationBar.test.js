@@ -2,9 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import NavigationBar from './NavigationBar';
 
-test('renders learn react link', () => {
+test('Check if Cek-in exist in navbar', () => {
   const { getByText } = render(<NavigationBar />);
-  // const linkElement = getByText('Warehouse');
-  // expect(linkElement).toBeInTheDocument();
+  expect(getByText('Cek-in')).toBeInTheDocument();
 });
- 

@@ -10,7 +10,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 
 function NavigationBar() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand={true}>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">

@@ -38,9 +38,9 @@ class CheckInMember extends React.Component {
 
     render() {
         return (
-            <div style={bodyStyle}>
+            <div style={checkInMemberStyle}>
                 <InputGroup className="mb-3" size="md">
-                    <FormControl placeholder="Masukan Nomor Identitas Member (ex. 123456789012)" value={this.state.memberId} onChange={input => this.updateMemberId(input.target.value)} />
+                    <FormControl data-testid="member-id-input" placeholder="Masukan Nomor Identitas Member (ex. 123456789012)" value={this.state.memberId} onChange={input => this.updateMemberId(input.target.value)} />
                     <InputGroup.Append>
                         <Button variant="primary" onClick={this.findMemberById} disabled={this.state.memberId.length === 0}>Cari Member</Button>
                     </InputGroup.Append>
@@ -52,7 +52,7 @@ class CheckInMember extends React.Component {
     }
 }
 
-const bodyStyle = {
+const checkInMemberStyle = {
     padding: '32px 25%'
 };
 
