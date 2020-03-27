@@ -11,8 +11,8 @@ function MemberInfo(props) {
             <Card.Img variant="top" src={avatarSrc} style={memberAvatarStyle} />
             <Card.Body>
                 <Card.Title>{props.member.memberName}</Card.Title>
-                <Table style={memberInfoTableStyle} borderless>
-                    <tbody style={{borderRadius: '25px'}}>
+                <Table style={memberInfoTableStyle}>
+                    <tbody>
                         <tr>
                             <td><strong>Nomor Identitas Member</strong></td>
                             <td>{props.member.memberId}</td>

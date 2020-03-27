@@ -40,7 +40,7 @@ class CheckInMember extends React.Component {
         return (
             <div style={checkInMemberStyle}>
                 <InputGroup className="mb-3" size="md">
-                    <FormControl data-testid="member-id-input" placeholder="Masukan Nomor Identitas Member (ex. 123456789012)" value={this.state.memberId} onChange={input => this.updateMemberId(input.target.value)} />
+                    <FormControl placeholder="Masukan Nomor Identitas Member (ex. 123456789012)" value={this.state.memberId} onChange={input => this.updateMemberId(input.target.value)} />
                     <InputGroup.Append>
                         <Button variant="primary" onClick={this.findMemberById} disabled={this.state.memberId.length === 0}>Cari Member</Button>
                     </InputGroup.Append>

@@ -1,28 +1,42 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { render } from '@testing-library/react';
-import CheckInMember from './CheckInMember';
-import store from "../../../redux/store";
 import { wait, fireEvent } from '@testing-library/dom';
+import { render } from '@testing-library/react';
+import store from "../../../redux/store";
+import { Provider } from 'react-redux';
+import CheckInMember from './CheckInMember';
 
-const setup = () => render(<Provider store={store}><CheckInMember /></Provider>);
+const renderWithRedux = () => render(<Provider store={store}><CheckInMember /></Provider>);
+
+const mockSearchMember = (getByPlaceholderText, getByText) => {
+    const input = getByPlaceholderText('Masukan Nomor Identitas Member (ex. 123456789012)');
+    fireEvent.change(input, { target: { value: '123' }});
+    getByText('Cari Member').click();
+}
 
 test('Search button should be disabled if member ID field is empty', () => {
-    const { getByText, getByTestId } = setup();
-    const input = getByTestId('member-id-input');
+    const { getByText, getByPlaceholderText } = renderWithRedux();
+    const input = getByPlaceholderText('Masukan Nomor Identitas Member (ex. 123456789012)');
     expect(input).not.toHaveValue();
     expect(getByText('Cari Member')).toBeDisabled();
 });
 
-test('Member search should render member info component', async () => {
-    const { getByTestId, getByText } = setup();
-    const input = getByTestId('member-id-input');
-    fireEvent.change(input, { target: { value: '123' }});
+test('Successful member search should render member info component', async () => {
+    const { getByPlaceholderText, getByText } = renderWithRedux();
+    mockSearchMember(getByPlaceholderText, getByText);
     expect(getByText('Cari Member')).not.toBeDisabled();
-    getByText('Cari Member').click();
 
-    await wait(() =>
-        expect(getByText('Edo Bastian')).toBeInTheDocument()
-    );
+    await wait(() => expect(getByText('Edo Bastian')).toBeInTheDocument());
+});
+
+test('Member info component should have complete data elements', async () => {
+    const { getByPlaceholderText, getByText } = renderWithRedux();
+    mockSearchMember(getByPlaceholderText, getByText);
+    
+    await wait(() => {
+        expect(getByText('Nomor Identitas Member')).toBeInTheDocument();
+        expect(getByText('Jenis Member')).toBeInTheDocument();
+        expect(getByText('Masa Berlaku Member')).toBeInTheDocument();
+        expect(getByText('Tanggal Lahir')).toBeInTheDocument();
+    });
 });
 
