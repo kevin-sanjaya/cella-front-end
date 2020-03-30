@@ -3,6 +3,12 @@
         "memberId": "123456789012",
         "memberName": "Edo Bastian",
         "memberSubscriptionTier": "Gold",
+        "memberMobileNumber": "0813241105",
+        "memberPlaceOfBirth": "Jakarta",
+        "memberAddress": "Jln. Kebayoran Manggis 7/3A, Jakarta Barat",
+        "memberEmergencyContact": "1234567890 Bpk. Cahyono",
+        "memberOccupation": "Pelajar",
+        "memberStartDate": "01/02/2020",
         "memberExpiryDate": "01/02/2021",
         "memberDateOfBirth": "28/08/2021",
         "memberAvatarSrc": "mock-avatar.svg"

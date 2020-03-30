@@ -4,16 +4,15 @@ import CheckInMember from "./check-in-member/CheckInMember";
 import CheckInTrainer from "./CheckInTrainer";
 
 function CheckIn() {
-    let { type } = useParams();
+    let { param } = useParams();
 
-    if (type === 'member')
+    if (param === 'member')
         return (<CheckInMember />);
     
-    else if (type === 'trainer')
+    else if (param === 'trainer')
         return (<CheckInTrainer />);
     
-    else
-        return 'Not Found';
+    return 'Not Found';
 }
 
 export default CheckIn;

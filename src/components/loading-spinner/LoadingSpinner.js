@@ -1,11 +1,11 @@
 import React from 'react';
 import Spinner from 'react-bootstrap/Spinner';
 
-function LoadingSpinner() {
+function LoadingSpinner(props) {
     return (
         <div style={loadingSpinnerStyle}>
             <Spinner animation="border" variant="primary" />
-            <h5 style={textStyle}>Sedang mencari...</h5>
+            <h5 style={textStyle}>{props.text}</h5>
         </div>
     );
 }

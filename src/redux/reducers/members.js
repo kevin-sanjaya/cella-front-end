@@ -13,9 +13,9 @@ export default function (state = initialState, action) {
             return {...state, members: members};
         }
         case FETCH_MEMBER_BY_ID: {
-            const member = action.payload;
+            const memberById = action.payload;
 
-            return {...state, memberById: member};
+            return {...state, memberById };
         }
         default:
             return state;

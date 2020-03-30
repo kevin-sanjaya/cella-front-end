@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import MemberInfo from './MemberInfo';
 import LoadingSpinner from '../../loading-spinner/LoadingSpinner';
 import { connect } from "react-redux";
-import { fetchMemberByIdService } from "../../../redux/actions";
+import { fetchMemberById } from "../../../redux/actions";
 import { getMemberById } from "../../../redux/selectors";
 
 class CheckInMember extends React.Component {
@@ -20,12 +20,12 @@ class CheckInMember extends React.Component {
 
     findMemberById = () => {
         this.setState({ isLoading: true });
-        this.props.fetchMemberByIdService(this.state.memberId, this.apiCallback);
+        this.props.fetchMemberById(this.state.memberId, this.apiCallback);
     }
 
     renderMemberInfo = () => {
         if (this.state.isLoading)
-            return <LoadingSpinner />;
+            return <LoadingSpinner text="Sedang mencari..." />;
 
         else if (!this.state.isServiceAvailable)
             return <h5 style={warningTextStyle}>Mohon maaf, sistem sedang mengalami gangguan.</h5>;
@@ -65,4 +65,4 @@ function mapStateToProps(state) {
     return { member };
 }
 
-export default connect(mapStateToProps, { fetchMemberByIdService })(CheckInMember);
+export default connect(mapStateToProps, { fetchMemberById })(CheckInMember);

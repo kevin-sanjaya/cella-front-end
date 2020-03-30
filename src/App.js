@@ -4,6 +4,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavigationBar from './components/navigation-bar/NavigationBar';
 import CheckIn from './components/check-in/CheckIn';
+import Trainers from './components/trainers/Trainers';
 
 function App() {
   return (
@@ -11,8 +12,11 @@ function App() {
       <Router>
         <NavigationBar />
         <Switch>
-          <Route path="/check-in/:type">
+          <Route path="/check-in/:param">
             <CheckIn />
+          </Route>
+          <Route path="/trainers/:param">
+            <Trainers />
           </Route>
           <Route path="*">
             Not found

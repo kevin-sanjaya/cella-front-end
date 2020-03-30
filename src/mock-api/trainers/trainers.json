@@ -1,0 +1,17 @@
+[
+    {
+        "trainerId": "123456789012",
+        "trainerName": "Rizky Perdana",
+        "trainerContractStart": "05/01/2019",
+        "trainerContractEnd": "05/07/2019",
+        "trainerContractHour": "28",
+        "trainerLocationCode": "Barat 2A",
+        "trainerPlaceOfBirth": "Jakarta",
+        "trainerAddress": "Jln. Kebayoran Manggis 7/3A, Jakarta Barat",
+        "trainerEmergencyContact": "1234567890 Bpk. Cahyono",
+        "trainerSpecialization": "Angkat Beban",
+        "trainerMobileNumber": "0000000000",
+        "trainerDateOfBirth": "15/01/1990",
+        "trainerAvatarSrc": "mock-avatar.svg"
+    }
+]
