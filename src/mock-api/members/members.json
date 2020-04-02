@@ -5,12 +5,40 @@
         "memberSubscriptionTier": "Gold",
         "memberMobileNumber": "0813241105",
         "memberPlaceOfBirth": "Jakarta",
-        "memberAddress": "Jln. Kebayoran Manggis 7/3A, Jakarta Barat",
-        "memberEmergencyContact": "1234567890 Bpk. Cahyono",
+        "memberAddress": "Jln. Kebayoran Manggis 7/3A",
+        "memberEmergencyContact": "0314533190 Ibu Cahyono",
         "memberOccupation": "Pelajar",
         "memberStartDate": "01/02/2020",
         "memberExpiryDate": "01/02/2021",
-        "memberDateOfBirth": "28/08/2021",
+        "memberDateOfBirth": "28/08/1995",
+        "memberAvatarSrc": "mock-avatar.svg"
+    },
+    {
+        "memberId": "136703233276",
+        "memberName": "Rama Putra Agung",
+        "memberSubscriptionTier": "Bronze",
+        "memberMobileNumber": "0834431125",
+        "memberPlaceOfBirth": "Pekanbaru",
+        "memberAddress": "Jln. Kelapa Gading 10A",
+        "memberEmergencyContact": "0316822150 Sdr Suhendra",
+        "memberOccupation": "Wiraswasta",
+        "memberStartDate": "20/10/2017",
+        "memberExpiryDate": "20/8/2021",
+        "memberDateOfBirth": "03/12/1990",
+        "memberAvatarSrc": "mock-avatar.svg"
+    },
+    {
+        "memberId": "596906273646",
+        "memberName": "Andrew Liang",
+        "memberSubscriptionTier": "Silver",
+        "memberMobileNumber": "0856444891",
+        "memberPlaceOfBirth": "Surabaya",
+        "memberAddress": "Jln. Pacuan Kuda 3G/e1",
+        "memberEmergencyContact": "0315023140 Bpk Hendy",
+        "memberOccupation": "Pegawai Swasta",
+        "memberStartDate": "30/08/2019",
+        "memberExpiryDate": "30/02/2021",
+        "memberDateOfBirth": "14/06/1996",
         "memberAvatarSrc": "mock-avatar.svg"
     }
 ]

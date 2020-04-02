@@ -1,17 +1,32 @@
 [
     {
-        "trainerId": "123456789012",
+        "trainerId": "018388646862",
         "trainerName": "Rizky Perdana",
         "trainerContractStart": "05/01/2019",
-        "trainerContractEnd": "05/07/2019",
-        "trainerContractHour": "28",
-        "trainerLocationCode": "Barat 2A",
-        "trainerPlaceOfBirth": "Jakarta",
-        "trainerAddress": "Jln. Kebayoran Manggis 7/3A, Jakarta Barat",
-        "trainerEmergencyContact": "1234567890 Bpk. Cahyono",
+        "trainerContractEnd": "05/07/2022",
+        "trainerContractHour": 28,
+        "trainerManager": "0823348015 Bpk Edy Putra Gede",
+        "trainerPlaceOfBirth": "Surakarta",
+        "trainerAddress": "Jln. Cemara 40/2A",
+        "trainerEmergencyContact": "0315825183 Bpk Gideon",
         "trainerSpecialization": "Angkat Beban",
-        "trainerMobileNumber": "0000000000",
-        "trainerDateOfBirth": "15/01/1990",
+        "trainerMobileNumber": "0835440158",
+        "trainerDateOfBirth": "15/01/1980",
+        "trainerAvatarSrc": "mock-avatar.svg"
+    },
+    {
+        "trainerId": "161952804646",
+        "trainerName": "Denny Kurniawan",
+        "trainerContractStart": "14/02/2020",
+        "trainerContractEnd": "14/08/2023",
+        "trainerContractHour": 40,
+        "trainerManager": "0823348015 Bpk Edy Putra Gede",
+        "trainerPlaceOfBirth": "Solo",
+        "trainerAddress": "Jln. Kembang Baru No. 10",
+        "trainerEmergencyContact": "0312256190 Ibu Puji",
+        "trainerSpecialization": "Instruktur Senam",
+        "trainerMobileNumber": "0814428715",
+        "trainerDateOfBirth": "22/02/1983",
         "trainerAvatarSrc": "mock-avatar.svg"
     }
 ]

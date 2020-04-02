@@ -4,6 +4,8 @@ import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import MemberInfo from './MemberInfo';
 import LoadingSpinner from '../../loading-spinner/LoadingSpinner';
+import resultNotFoundSymbol from '../../../assets/result-not-found.svg';
+import serviceNotAvailableSymbol from '../../../assets/service-not-available.svg';
 import { connect } from "react-redux";
 import { fetchMemberById } from "../../../redux/actions";
 import { getMemberById } from "../../../redux/selectors";
@@ -28,10 +30,12 @@ class CheckInMember extends React.Component {
             return <LoadingSpinner text="Sedang mencari..." />;
 
         else if (!this.state.isServiceAvailable)
-            return <h5 style={warningTextStyle}>Mohon maaf, sistem sedang mengalami gangguan.</h5>;
+            return <h5 style={warningTextStyle}><img src={serviceNotAvailableSymbol} alt="service-not-available" style={warningSymbolStyle} />
+                Mohon maaf, sistem sedang mengalami gangguan.</h5>;
 
         else if (Object.keys(this.props.member).length === 0)
-            return this.state.isSearchDirty ? <h5 style={warningTextStyle}>Hasil pencarian tidak ditemukan.</h5> : null;
+            return this.state.isSearchDirty ? <h5 style={warningTextStyle}><img src={resultNotFoundSymbol} alt="result-not-found" style={warningSymbolStyle} />
+                Hasil pencarian tidak ditemukan.</h5> : null;
 
         return <MemberInfo member={this.props.member} />;
     }
@@ -40,7 +44,7 @@ class CheckInMember extends React.Component {
         return (
             <div style={checkInMemberStyle}>
                 <InputGroup className="mb-3" size="md">
-                    <FormControl placeholder="Masukan Nomor Identitas Member (ex. 123456789012)" value={this.state.memberId} onChange={input => this.updateMemberId(input.target.value)} />
+                    <FormControl placeholder="Masukan 12-Digit Nomor Identitas Member" value={this.state.memberId} onChange={input => this.updateMemberId(input.target.value)} />
                     <InputGroup.Append>
                         <Button variant="primary" onClick={this.findMemberById} disabled={this.state.memberId.length === 0}>Cari Member</Button>
                     </InputGroup.Append>
@@ -51,6 +55,11 @@ class CheckInMember extends React.Component {
         );
     }
 }
+
+const warningSymbolStyle = {
+    width: '32px',
+    marginRight: '4px'
+};
 
 const checkInMemberStyle = {
     padding: '32px 25%'

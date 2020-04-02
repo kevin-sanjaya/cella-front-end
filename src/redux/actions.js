@@ -10,7 +10,7 @@ export const fetchMemberById = (id, callback) => { // TODO: change to axios
     return dispatch => {
         mockApi.fetchMemberById(id)
             .then(member => {
-                dispatch(storeReducer(FETCH_MEMBER_BY_ID, member));
+                dispatch(storeReducer(FETCH_MEMBER_BY_ID, member.data));
                 callback(true);
             })
             .catch(err => {
@@ -24,7 +24,7 @@ export const fetchTrainerList = callback => { // TODO: change to axios
     return dispatch => {
         mockApi.fetchTrainerList()
             .then(trainers => {
-                dispatch(storeReducer(FETCH_TRAINER_LIST, trainers));
+                dispatch(storeReducer(FETCH_TRAINER_LIST, trainers.data));
                 callback(true);
             })
             .catch(err => {
