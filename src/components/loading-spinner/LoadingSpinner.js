@@ -11,7 +11,7 @@ function LoadingSpinner(props) {
 }
 
 const loadingSpinnerStyle = {
-    margin: '80px'
+    marginTop: '80px'
 };
 
 const textStyle = {

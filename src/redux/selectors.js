@@ -1,4 +1,5 @@
 export const getStateForMembers = store => store.members;
+
 export const getStateForTrainers = store => store.trainers;
 
 export const getMemberList = store => getStateForMembers(store) ? getStateForMembers(store).members : [];

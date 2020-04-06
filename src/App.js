@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavigationBar from './components/navigation-bar/NavigationBar';
 import CheckIn from './components/check-in/CheckIn';
 import Trainers from './components/trainers/Trainers';
+import Alert from './components/alert/Alert';
+import notFoundSymbol from './assets/404.svg';
 
 function App() {
   return (
@@ -19,7 +21,7 @@ function App() {
             <Trainers />
           </Route>
           <Route path="*">
-            Not found
+            <Alert alertSymbol={notFoundSymbol} alertText="Mohon maaf, halaman ini tidak dapat ditemukan." />
           </Route>
         </Switch>
       </Router>

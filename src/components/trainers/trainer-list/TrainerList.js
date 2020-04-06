@@ -3,6 +3,7 @@ import Table from 'react-bootstrap/Table';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
+import Alert from '../../alert/Alert';
 import LoadingSpinner from '../../loading-spinner/LoadingSpinner';
 import serviceNotAvailableSymbol from '../../../assets/service-not-available.svg';
 import { connect } from "react-redux";
@@ -20,17 +21,21 @@ class TrainerList extends React.Component {
 
     updateTrainerName = trainerName => this.setState({ trainerName })
 
-    filterTrainerList = () => this.setState({ trainers: this.state.trainerName === '' ? [...this.props.trainers] : [...this.props.trainers.filter(trainer => trainer.trainerName.toLowerCase().includes(this.state.trainerName))] })
+    filterTrainerList = () => {
+        let trainers = [...this.props.trainers];
+        if (this.state.trainerName !== '')
+            trainers = trainers.filter(trainer => trainer.trainerName.toLowerCase().includes(this.state.trainerName.toLowerCase()));
+        this.setState({ trainers });
+    }
 
     renderTrainerList = () => {
         if (this.state.isLoading)
-            return <LoadingSpinner text="Memuat daftar trainer..." />;
+            return (<LoadingSpinner text="Memuat daftar trainer..." />);
 
         else if (!this.state.isServiceAvailable)
-            return <h5 style={warningTextStyle}><img src={serviceNotAvailableSymbol} alt="service-not-available" style={warningSymbolStyle} />
-                Mohon maaf, sistem sedang mengalami gangguan.</h5>;
+            return (<Alert alertSymbol={serviceNotAvailableSymbol} alertText="Mohon maaf, sistem sedang mengalami gangguan." />);
 
-        return <Table hover>
+        return (<Table hover>
             <thead>
                 <tr>
                     <th>No.</th>
@@ -50,28 +55,29 @@ class TrainerList extends React.Component {
                     <td>{trainer.trainerSpecialization}</td>
                 </tr>)}
             </tbody>
-        </Table>;
+        </Table>);
     }
 
     render() {
         return (
             <div style={trainerListStyle}>
                 <InputGroup className="mb-3" size="md">
-                    <FormControl placeholder="Masukan Nama Trainer" value={this.state.trainerName} onChange={input => this.updateTrainerName(input.target.value)} />
+                    <FormControl placeholder="Masukan Nama Lengkap Trainer" value={this.state.trainerName} onChange={input => this.updateTrainerName(input.target.value)} />
                     <InputGroup.Append>
+                        <Button style={clearSearchButtonStyle} onClick={() => this.setState({ trainerName: '' })}>x</Button>
                         <Button variant="primary" onClick={this.filterTrainerList}>Filter Trainer</Button>
                     </InputGroup.Append>
                 </InputGroup>
-
                 {this.renderTrainerList()}
             </div>
         );
     }
 }
 
-const warningSymbolStyle = {
-    width: '32px',
-    marginRight: '4px'
+const clearSearchButtonStyle = {
+    background: 'none',
+    border: '1px solid #ced4da',
+    color: 'black'
 };
 
 const trainerListStyle = {
@@ -80,10 +86,6 @@ const trainerListStyle = {
 
 const tableRowStyle = {
     cursor: 'pointer'
-};
-
-const warningTextStyle = {
-    margin: '80px'
 };
 
 function mapStateToProps(state) {

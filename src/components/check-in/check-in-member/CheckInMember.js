@@ -4,6 +4,7 @@ import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import MemberInfo from './MemberInfo';
 import LoadingSpinner from '../../loading-spinner/LoadingSpinner';
+import Alert from '../../alert/Alert';
 import resultNotFoundSymbol from '../../../assets/result-not-found.svg';
 import serviceNotAvailableSymbol from '../../../assets/service-not-available.svg';
 import { connect } from "react-redux";
@@ -25,19 +26,17 @@ class CheckInMember extends React.Component {
         this.props.fetchMemberById(this.state.memberId, this.apiCallback);
     }
 
-    renderMemberInfo = () => {
+    renderSearchResult = () => {
         if (this.state.isLoading)
-            return <LoadingSpinner text="Sedang mencari..." />;
+            return (<LoadingSpinner text="Sedang mencari..." />);
 
         else if (!this.state.isServiceAvailable)
-            return <h5 style={warningTextStyle}><img src={serviceNotAvailableSymbol} alt="service-not-available" style={warningSymbolStyle} />
-                Mohon maaf, sistem sedang mengalami gangguan.</h5>;
+            return (<Alert alertSymbol={serviceNotAvailableSymbol} alertText="Mohon maaf, sistem sedang mengalami gangguan." />);
 
         else if (Object.keys(this.props.member).length === 0)
-            return this.state.isSearchDirty ? <h5 style={warningTextStyle}><img src={resultNotFoundSymbol} alt="result-not-found" style={warningSymbolStyle} />
-                Hasil pencarian tidak ditemukan.</h5> : null;
+            return this.state.isSearchDirty ? (<Alert alertSymbol={resultNotFoundSymbol} alertText="Hasil pencarian tidak ditemukan." />) : null;
 
-        return <MemberInfo member={this.props.member} />;
+        return (<MemberInfo member={this.props.member} />);
     }
 
     render() {
@@ -46,27 +45,24 @@ class CheckInMember extends React.Component {
                 <InputGroup className="mb-3" size="md">
                     <FormControl placeholder="Masukan 12-Digit Nomor Identitas Member" value={this.state.memberId} onChange={input => this.updateMemberId(input.target.value)} />
                     <InputGroup.Append>
+                        <Button style={clearSearchButtonStyle} onClick={() => this.setState({ memberId: '' })}>x</Button>
                         <Button variant="primary" onClick={this.findMemberById} disabled={this.state.memberId.length === 0}>Cari Member</Button>
                     </InputGroup.Append>
                 </InputGroup>
-
-                {this.renderMemberInfo()}
+                {this.renderSearchResult()}
             </div>
         );
     }
 }
 
-const warningSymbolStyle = {
-    width: '32px',
-    marginRight: '4px'
+const clearSearchButtonStyle = {
+    background: 'none',
+    border: '1px solid #ced4da',
+    color: 'black'
 };
 
 const checkInMemberStyle = {
     padding: '32px 25%'
-};
-
-const warningTextStyle = {
-    margin: '80px'
 };
 
 function mapStateToProps(state) {

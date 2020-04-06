@@ -8,9 +8,9 @@ const initialState = {
 export default function (state = initialState, action) {
     switch (action.type) {
         case FETCH_MEMBER_LIST: {
-            const { members } = action.payload;
+            const members = action.payload;
             
-            return {...state, members: members};
+            return {...state, members };
         }
         case FETCH_MEMBER_BY_ID: {
             const memberById = action.payload;
