@@ -1,16 +1,17 @@
 import React from 'react';
-import { useParams } from "react-router-dom";
+import { useParams, withRouter } from "react-router-dom";
 import TrainerList from "./trainer-list/TrainerList";
-import Alert from '../alert/Alert';
-import notFoundSymbol from '../../assets/404.svg';
+import TrainerDetail from "./trainer-detail/TrainerDetail";
 
 function Trainers() {
     let { param } = useParams();
-
+ 
     if (param === 'all')
-        return (<TrainerList />);
+        return <TrainerListRouteWrapper />
     
-    return (<Alert alertSymbol={notFoundSymbol} alertText="Mohon maaf, halaman ini tidak dapat ditemukan." />);
+    return <TrainerDetail trainerId={param} />
 }
+
+const TrainerListRouteWrapper = withRouter(({ history }) => (<TrainerList history={history} />));
 
 export default Trainers;

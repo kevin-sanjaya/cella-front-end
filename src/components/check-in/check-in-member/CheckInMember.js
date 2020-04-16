@@ -28,13 +28,13 @@ class CheckInMember extends React.Component {
 
     renderSearchResult = () => {
         if (this.state.isLoading)
-            return (<LoadingSpinner text="Sedang mencari..." />);
+            return (<LoadingSpinner text="Sedang mencari member..." />);
 
         else if (!this.state.isServiceAvailable)
             return (<Alert alertSymbol={serviceNotAvailableSymbol} alertText="Mohon maaf, sistem sedang mengalami gangguan." />);
 
         else if (Object.keys(this.props.member).length === 0)
-            return this.state.isSearchDirty ? (<Alert alertSymbol={resultNotFoundSymbol} alertText="Hasil pencarian tidak ditemukan." />) : null;
+            return this.state.isSearchDirty ? (<Alert alertSymbol={resultNotFoundSymbol} alertText="Hasil pencarian member tidak ditemukan." />) : null;
 
         return (<MemberInfo member={this.props.member} />);
     }

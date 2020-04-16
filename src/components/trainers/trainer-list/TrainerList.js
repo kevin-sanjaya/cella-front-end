@@ -14,8 +14,9 @@ class TrainerList extends React.Component {
     constructor(props) {
         super(props);
         this.state = { trainerName: '', isLoading: true, isServiceAvailable: true };
-        this.props.fetchTrainerList(this.apiCallback);
     }
+
+    componentDidMount = () =>this.props.fetchTrainerList(this.apiCallback)
 
     apiCallback = isServiceAvailable => this.setState({ isServiceAvailable, isLoading: false, trainers: [...this.props.trainers] })
 
@@ -46,8 +47,8 @@ class TrainerList extends React.Component {
                 </tr>
             </thead>
             <tbody>
-                {this.state.trainers.length === 0 ? <td colSpan="5"><h5>Hasil pencarian tidak ditemukan.</h5></td> : null}
-                {this.state.trainers.map((trainer, index) => <tr key={index} style={tableRowStyle}>
+                {this.state.trainers.length === 0 ? <tr><td colSpan="5"><h5>Hasil pencarian trainer tidak ditemukan.</h5></td></tr> : null}
+                {this.state.trainers.map((trainer, index) => <tr key={index} style={tableRowStyle} onClick={() => this.props.history.push(trainer.trainerId)}>
                     <td>{++index}</td>
                     <td>{trainer.trainerName}</td>
                     <td>{trainer.trainerContractEnd}</td>
@@ -62,7 +63,7 @@ class TrainerList extends React.Component {
         return (
             <div style={trainerListStyle}>
                 <InputGroup className="mb-3" size="md">
-                    <FormControl placeholder="Masukan Nama Lengkap Trainer" value={this.state.trainerName} onChange={input => this.updateTrainerName(input.target.value)} />
+                    <FormControl placeholder="Masukan Nama Depan/Belakang Trainer" value={this.state.trainerName} onChange={input => this.updateTrainerName(input.target.value)} />
                     <InputGroup.Append>
                         <Button style={clearSearchButtonStyle} onClick={() => this.setState({ trainerName: '' })}>x</Button>
                         <Button variant="primary" onClick={this.filterTrainerList}>Filter Trainer</Button>

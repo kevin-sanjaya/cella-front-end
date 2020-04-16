@@ -7,3 +7,5 @@ export const getMemberList = store => getStateForMembers(store) ? getStateForMem
 export const getMemberById = store => getStateForMembers(store) ? getStateForMembers(store).memberById : {};
 
 export const getTrainerList = store => getStateForTrainers(store) ? getStateForTrainers(store).trainers : [];
+
+export const getTrainerById = store => getStateForTrainers(store) ? getStateForTrainers(store).trainerById : {};
