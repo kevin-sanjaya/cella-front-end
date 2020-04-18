@@ -5,6 +5,7 @@
         "trainerContractStart": "2019-01-05",
         "trainerContractEnd": "2022-07-05",
         "trainerContractHour": 28,
+        "trainerRemainingWeekContractHour": 12,
         "trainerManager": "0823348015 Bpk Edy Putra Gede",
         "trainerPlaceOfBirth": "Surakarta",
         "trainerAddress": "Jln. Cemara 40/2A",
@@ -12,7 +13,8 @@
         "trainerSpecialization": "Angkat Beban",
         "trainerMobileNumber": "0835440158",
         "trainerDateOfBirth": "1980-01-15",
-        "trainerAvatarSrc": "mock-avatar.svg"
+        "trainerAvatarSrc": "mock-avatar.svg",
+        "trainerContractHourWarning": true
     },
     {
         "trainerId": "161952804646",
@@ -20,6 +22,7 @@
         "trainerContractStart": "2020-02-14",
         "trainerContractEnd": "2023-08-14",
         "trainerContractHour": 40,
+        "trainerRemainingWeekContractHour": 28,
         "trainerManager": "0823348015 Bpk Edy Putra Gede",
         "trainerPlaceOfBirth": "Solo",
         "trainerAddress": "Jln. Kembang Baru No. 10",
@@ -27,6 +30,7 @@
         "trainerSpecialization": "Instruktur Senam",
         "trainerMobileNumber": "0814428715",
         "trainerDateOfBirth": "1983-02-22",
-        "trainerAvatarSrc": "mock-avatar.svg"
+        "trainerAvatarSrc": "mock-avatar.svg",
+        "trainerContractHourWarning": false
     }
 ]

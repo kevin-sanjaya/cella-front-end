@@ -1,0 +1,26 @@
+[
+    {
+        "checkInEventId": "fba79d20-663a-481c-8d8f-6f83cd1fd3be",
+        "member": {
+            "memberId": "123456789012",
+            "memberName": "Edo Bastian",
+            "memberSubscriptionTier": "Gold",
+            "memberAvatarSrc": "mock-avatar.svg"
+        },
+        "checkInEventTimestamp": "12:49:35",
+        "checkInEventStorageNumber": "14B",
+        "checkInEventProperty": ["Shoes", "Towel"]
+    },
+    {
+        "checkInEventId": "eaf293d8-7542-4fda-9f46-4cc30941de44",
+        "member": {
+            "memberId": "136703233276",
+            "memberName": "Rama Putra Agung",
+            "memberSubscriptionTier": "Bronze",
+            "memberAvatarSrc": "mock-avatar.svg"
+        },
+        "checkInEventTimestamp": "10:49:35",
+        "checkInEventStorageNumber": "20A",
+        "checkInEventProperty": []
+    }
+]

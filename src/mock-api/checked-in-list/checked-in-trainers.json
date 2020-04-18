@@ -1,0 +1,30 @@
+[
+    {
+        "checkInEventId": "7c29e11d-10b7-4fd4-a681-e9abb1967159",
+        "trainer": {
+            "trainerId": "018388646862",
+            "trainerName": "Rizky Perdana",
+            "trainerContractHour": 28,
+            "trainerRemainingWeekHour": 12,
+            "trainerSpecialization": "Angkat Beban",
+            "trainerAvatarSrc": "mock-avatar.svg"
+        },
+        "checkInEventTimestamp": "17:49:35",
+        "checkInEventStorageNumber": "11C",
+        "checkInEventProperty": ["Shoes"]
+    },
+    {
+        "checkInEventId": "d4c6e9d7-cf82-4f2b-bce9-206e1a54eb61",
+        "trainer": {
+            "trainerId": "161952804646",
+            "trainerName": "Denny Kurniawan",
+            "trainerContractHour": 40,
+            "trainerRemainingWeekHour": 28,
+            "trainerSpecialization": "Instruktur Senam",
+            "trainerAvatarSrc": "mock-avatar.svg"
+        },
+        "checkInEventTimestamp": "10:12:33",
+        "checkInEventStorageNumber": "44A",
+        "checkInEventProperty": ["Towel"]
+    }
+]

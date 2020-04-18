@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
+import CustomAlert from '../../alert/Alert';
 import LoadingSpinner from '../../loading-spinner/LoadingSpinner';
 import resultNotFoundSymbol from '../../../assets/result-not-found.svg';
 import serviceNotAvailableSymbol from '../../../assets/service-not-available.svg';
@@ -73,10 +74,10 @@ class TrainerDetail extends React.Component {
             return (<LoadingSpinner text="Memuat data trainer..." />);
 
         else if (!this.state.isServiceAvailable)
-            return (<Alert alertSymbol={serviceNotAvailableSymbol} alertText="Mohon maaf, sistem sedang mengalami gangguan." />);
+            return (<CustomAlert alertSymbol={serviceNotAvailableSymbol} alertText="Mohon maaf, sistem sedang mengalami gangguan." />);
 
         else if (Object.keys(this.props.trainer).length === 0)
-            return (<Alert alertSymbol={resultNotFoundSymbol} alertText="Data trainer tidak ditemukan." />);
+            return (<CustomAlert alertSymbol={resultNotFoundSymbol} alertText="Data trainer tidak ditemukan." />);
 
         return (<Card>
             <Card.Img variant="top" src={this.state.trainerAvatarSrc} style={trainerAvatarStyle} />
