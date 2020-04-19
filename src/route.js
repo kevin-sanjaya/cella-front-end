@@ -8,14 +8,14 @@ const route = [
     },
     {
         id: 8, name: 'Member', url: '/members', child: [
-            { id: 9, name: 'Daftar Member Aktif', url: '/all' },
-            { id: 10, name: 'Buat Member Baru', url: '/new' },
-            { id: 11, name: 'Perpanjang Member', url: '/extend' }
+            { id: 9, name: 'Data Member Aktif', url: '/all' },
+            { id: 10, name: 'Daftar Member Baru', url: '/new' },
+            { id: 11, name: 'Perpanjang Membership Gym', url: '/extend' }
         ]
     },
     {
         id: 12, name: 'Trainer', url: '/trainers', child: [
-            { id: 13, name: 'Daftar Trainer Aktif', url: '/all' }
+            { id: 13, name: 'Data Trainer Aktif', url: '/all' }
         ]
     },
     {

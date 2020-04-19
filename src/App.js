@@ -6,7 +6,6 @@ import NavigationBar from './components/navigation-bar/NavigationBar';
 import CheckIn from './components/check-in/CheckIn';
 import Trainers from './components/trainers/Trainers';
 import Alert from './components/alert/Alert';
-import Dashboard from './components/dashboard/Dashboard';
 import notFoundSymbol from './assets/404.svg';
 
 function App() {

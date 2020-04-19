@@ -6,6 +6,8 @@ import Form from 'react-bootstrap/Form';
 import goldSubscriptionSymbol from '../../../assets/gold-member.svg';
 import silverSubscriptionSymbol from '../../../assets/silver-member.svg';
 import bronzeSubscriptionSymbol from '../../../assets/bronze-member.svg';
+import shoesRentalSymbol from '../../../assets/shoes.svg';
+import towellRentalSymbol from '../../../assets/towel.svg';
 
 class MemberInfo extends React.Component {
     constructor(props) {
@@ -32,7 +34,8 @@ class MemberInfo extends React.Component {
                     <Form.Control placeholder="Masukan Nomor Loker" value={this.state.storageNumber} onChange={input => this.updateStorageNumber(input.target.value)} />
                 </Form.Group>
                 <Form.Group>
-                    <Form.Check inline type="checkbox" label="Rental Handuk" /> <Form.Check inline type="checkbox" label="Rental Sepatu" />
+                    <Form.Check inline type="checkbox" label={<img src={towellRentalSymbol} alt="towell-rental" style={rentalSymbolStyle} />} />
+                    <Form.Check inline type="checkbox" label={<img src={shoesRentalSymbol} alt="shoes-rental" style={rentalSymbolStyle} />} />
                 </Form.Group>
             </Form>);
 
@@ -87,6 +90,11 @@ class MemberInfo extends React.Component {
 
 const centeredTableRowStyle = {
     verticalAlign: 'middle'
+};
+
+const rentalSymbolStyle = {
+    width: '32px',
+    marginRight: '8px'
 };
 
 const memberSubscriptionSymbolStyle = {
