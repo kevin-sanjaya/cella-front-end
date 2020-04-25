@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import Table from 'react-bootstrap/Table';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
@@ -8,9 +9,9 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import Alert from '../../alert/Alert';
 import LoadingSpinner from '../../loading-spinner/LoadingSpinner';
 import serviceNotAvailableSymbol from '../../../assets/service-not-available.svg';
-import { connect } from "react-redux";
-import { fetchTrainerList } from "../../../redux/actions";
-import { getTrainerList } from "../../../redux/selectors";
+import { connect } from 'react-redux';
+import { fetchTrainerList } from '../../../redux/actions';
+import { getTrainerList } from '../../../redux/selectors';
 
 class TrainerList extends React.Component {
     constructor(props) {
@@ -42,28 +43,28 @@ class TrainerList extends React.Component {
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Nama Lengkap</th>
-                    <th>Tgl. Kontrak Selesai</th>
-                    <th>Kuota Jam/Minggu</th>
-                    <th>Sisa Kuota</th>
+                    <th>Nama lengkap</th>
+                    <th>Tgl. kontrak selesai</th>
+                    <th>Kuota jam/minggu</th>
+                    <th>Sisa kuota</th>
                     <th>Spesialisasi</th>
                 </tr>
             </thead>
             <tbody>
-                {this.state.trainers.length === 0 ? <tr><td colSpan="5"><h5>Hasil pencarian trainer tidak ditemukan.</h5></td></tr> : null}
-                {this.state.trainers.map((trainer, index) => <tr key={index} style={tableRowStyle} onClick={() => this.props.history.push(trainer.trainerId)}>
+                {this.state.trainers.length === 0 ? (<tr><td colSpan="6"><h5 style={trainerNotFoundStyle}>Hasil pencarian trainer tidak ditemukan.</h5></td></tr>) : null}
+                {this.state.trainers.map((trainer, index) => (<tr key={index} style={tableRowStyle} onClick={() => this.props.history.push(trainer.trainerId)}>
                     <td>{++index}</td>
                     <td>{trainer.trainerName}</td>
-                    <td>{trainer.trainerContractEnd}</td>
+                    <td>{moment(trainer.trainerContractEnd).format("DD/MM/YYYY")}</td>
                     <td>{trainer.trainerContractHour} Jam</td>
                     <td>{trainer.trainerRemainingWeekContractHour} Jam
-                        {trainer.trainerContractHourWarning ? <OverlayTrigger placement="right" overlay={<Tooltip>
+                        {trainer.trainerContractHourWarning ? (<OverlayTrigger placement="right" overlay={<Tooltip>
                             Kuota jam kerja masih tersisa lebih dari 1/3 total jam kerja. Mohon peringatkan trainer.</Tooltip>}>
                             <span role="img" aria-label="warning"> &#10071;</span>
-                        </OverlayTrigger> : null }
+                        </OverlayTrigger>) : null }
                     </td>
                     <td>{trainer.trainerSpecialization}</td>
-                </tr>)}
+                </tr>))}
             </tbody>
         </Table>);
     }
@@ -72,10 +73,10 @@ class TrainerList extends React.Component {
         return (
             <div style={trainerListStyle}>
                 <InputGroup className="mb-3" size="md">
-                    <FormControl placeholder="Masukan Nama Depan/Belakang Trainer" value={this.state.trainerName} onChange={input => this.updateTrainerName(input.target.value)} />
+                    <FormControl placeholder="Masukan nama depan/belakang trainer" value={this.state.trainerName} onChange={input => this.updateTrainerName(input.target.value)} />
                     <InputGroup.Append>
                         <Button style={clearSearchButtonStyle} onClick={() => this.setState({ trainerName: '' })}>x</Button>
-                        <Button variant="primary" onClick={this.filterTrainerList}>Filter Trainer</Button>
+                        <Button variant="primary" onClick={this.filterTrainerList}>Filter trainer</Button>
                     </InputGroup.Append>
                 </InputGroup>
                 {this.renderTrainerList()}
@@ -84,14 +85,18 @@ class TrainerList extends React.Component {
     }
 }
 
+const trainerListStyle = {
+    padding: '32px 20%'
+};
+
 const clearSearchButtonStyle = {
     background: 'none',
     border: '1px solid #ced4da',
     color: 'black'
 };
 
-const trainerListStyle = {
-    padding: '32px 24%'
+const trainerNotFoundStyle = {
+    textAlign: 'center'
 };
 
 const tableStyle = {
@@ -99,8 +104,7 @@ const tableStyle = {
 };
 
 const tableRowStyle = {
-    cursor: 'pointer',
-    textAlign: 'left'
+    cursor: 'pointer'
 };
 
 function mapStateToProps(state) {

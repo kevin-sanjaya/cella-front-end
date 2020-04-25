@@ -7,9 +7,9 @@ import LoadingSpinner from '../../loading-spinner/LoadingSpinner';
 import Alert from '../../alert/Alert';
 import resultNotFoundSymbol from '../../../assets/result-not-found.svg';
 import serviceNotAvailableSymbol from '../../../assets/service-not-available.svg';
-import { connect } from "react-redux";
-import { fetchMemberById } from "../../../redux/actions";
-import { getMemberById } from "../../../redux/selectors";
+import { connect } from 'react-redux';
+import { fetchMemberById } from '../../../redux/actions';
+import { getMemberById } from '../../../redux/selectors';
 
 class CheckInMember extends React.Component {
     constructor(props) {
@@ -43,10 +43,10 @@ class CheckInMember extends React.Component {
         return (
             <div style={checkInMemberStyle}>
                 <InputGroup className="mb-3" size="md">
-                    <FormControl placeholder="Masukan 12-Digit Nomor Identitas Member" value={this.state.memberId} onChange={input => this.updateMemberId(input.target.value)} />
+                    <FormControl placeholder="Masukan 12-digit nomor identitas member" value={this.state.memberId} onChange={input => this.updateMemberId(input.target.value)} />
                     <InputGroup.Append>
                         <Button style={clearSearchButtonStyle} onClick={() => this.setState({ memberId: '' })}>x</Button>
-                        <Button variant="primary" onClick={this.findMemberById} disabled={this.state.memberId.length === 0}>Cari Member</Button>
+                        <Button variant="primary" onClick={this.findMemberById} disabled={this.state.memberId.length === 0}>Cari member</Button>
                     </InputGroup.Append>
                 </InputGroup>
                 {this.renderSearchResult()}

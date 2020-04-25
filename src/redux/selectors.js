@@ -14,6 +14,6 @@ export const getTrainerList = store => getStateForTrainers(store) ? getStateForT
 
 export const getTrainerById = store => getStateForTrainers(store) ? getStateForTrainers(store).trainerById : {};
 
-export const getCheckedInMemberList = store => getStateForCheckedInMembers(store) ? getStateForCheckedInMembers(store).checkedInMembers : [];
+export const getCheckedInMemberList = store => getStateForMembers(store) ? getStateForMembers(store).checkedInMembers : [];
 
-export const getCheckedInTrainerList = store => getStateForCheckedInTrainers(store) ? getStateForCheckedInTrainers(store).checkedInTrainers : [];
+export const getCheckedInTrainerList = store => getStateForTrainers(store) ? getStateForTrainers(store).checkedInTrainers : [];

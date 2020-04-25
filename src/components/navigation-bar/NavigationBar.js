@@ -1,19 +1,19 @@
 import React from 'react';
 import route from '../../route';
+import { LinkContainer } from 'react-router-bootstrap'
 import Navbar from 'react-bootstrap/Navbar';
 import Image from 'react-bootstrap/Image'
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { LinkContainer } from 'react-router-bootstrap'
 
 function NavigationBar() {
   return (
     <Navbar bg="light" expand={true}>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
+      <Navbar.Toggle />
+      <Navbar.Collapse>
+        <Nav>
           {route.map(route => (<NavDropdown title={route.name} key={route.id}>
             {route.child.map(child => (<LinkContainer key={child.id} to={`${route.url}${child.url}`}>
               <NavDropdown.Item>{child.name}</NavDropdown.Item>

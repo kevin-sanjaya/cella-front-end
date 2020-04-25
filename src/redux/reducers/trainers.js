@@ -1,8 +1,9 @@
-import { FETCH_TRAINER_LIST, FETCH_TRAINER_BY_ID } from "../actionTypes";
+import { FETCH_TRAINER_LIST, FETCH_TRAINER_BY_ID, FETCH_CHECKED_IN_TRAINER_LIST } from '../actionTypes';
 
 const initialState = {
     trainers: [],
-    trainerById: {}
+    trainerById: {},
+    checkedInTrainers: []
 };
 
 export default function (state = initialState, action) {
@@ -16,6 +17,11 @@ export default function (state = initialState, action) {
             const trainerById = action.payload;
 
             return {...state, trainerById };
+        }
+        case FETCH_CHECKED_IN_TRAINER_LIST: {
+            const checkedInTrainers = action.payload;
+
+            return {...state, checkedInTrainers };
         }
         default:
             return state;

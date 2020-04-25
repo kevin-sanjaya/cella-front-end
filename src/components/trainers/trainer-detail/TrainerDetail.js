@@ -5,13 +5,15 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 import CustomAlert from '../../alert/Alert';
 import LoadingSpinner from '../../loading-spinner/LoadingSpinner';
 import resultNotFoundSymbol from '../../../assets/result-not-found.svg';
 import serviceNotAvailableSymbol from '../../../assets/service-not-available.svg';
-import { connect } from "react-redux";
-import { fetchTrainerById } from "../../../redux/actions";
-import { getTrainerById } from "../../../redux/selectors";
+import { connect } from 'react-redux';
+import { fetchTrainerById } from '../../../redux/actions';
+import { getTrainerById } from '../../../redux/selectors';
 
 class TrainerDetail extends React.Component {
     constructor(props) {
@@ -32,11 +34,13 @@ class TrainerDetail extends React.Component {
 
     renderFormButton = () => {
         if (this.state.isFormLocked)
-            return (<Button variant="primary" onClick={() => this.setState({ isFormLocked: false })} >Ubah Data</Button>);
+            return (<Button variant="primary" onClick={() => this.setState({ isFormLocked: false })} >Ubah data</Button>);
 
         return (<div>
             <Button variant="danger" onClick={this.cancelFormEdit}>Batalkan</Button> &nbsp;
-            <Button variant="primary" disabled={this.isFormNotValid()}>Simpan Data</Button>
+            <OverlayTrigger placement="right" overlay={<Tooltip>POST request interactions are disabled in this demo environment.</Tooltip>}>
+                <Button variant="primary" disabled={this.isFormNotValid()}>Simpan data</Button>
+            </OverlayTrigger>
         </div>);
     }
 
@@ -46,12 +50,8 @@ class TrainerDetail extends React.Component {
                 onChange={input => this.updateForm(input.target.value, element.field)} value={this.state.trainerData[element.field]} />);
 
         else if (element.type === 'select')
-            return (<Form.Control as="select" disabled={this.state.isFormLocked} value={this.state.trainerData[element.field]} >
-                <option value="Angkat Beban">Angkat Beban</option>
-                <option value="Instruktur Senam">Instruktur Senam</option>
-                <option value="Instruktur Renang">Instruktur Renang</option>
-                <option value="Cardiovascular">Cardiovascular</option>
-                <option value="Badminton">Badminton</option>
+            return (<Form.Control as="select" disabled={this.state.isFormLocked} value={this.state.trainerData[element.field]}>
+                {trainerSpecializationEnum.map((value, index) => (<option key={index} value={value}>{value}</option>))}
             </Form.Control>);
 
         else
@@ -77,18 +77,17 @@ class TrainerDetail extends React.Component {
             return (<CustomAlert alertSymbol={serviceNotAvailableSymbol} alertText="Mohon maaf, sistem sedang mengalami gangguan." />);
 
         else if (Object.keys(this.props.trainer).length === 0)
-            return (<CustomAlert alertSymbol={resultNotFoundSymbol} alertText="Data trainer tidak ditemukan." />);
+            return (<CustomAlert alertSymbol={resultNotFoundSymbol} alertText="Data trainer tidak dapat ditemukan." />);
 
         return (<Card>
             <Card.Img variant="top" src={this.state.trainerAvatarSrc} style={trainerAvatarStyle} />
             <Card.Body>
-                <Card.Title>Data Trainer {this.props.trainer.trainerId}</Card.Title>
+                <Card.Title>Data personal trainer {this.props.trainer.trainerId}</Card.Title>
                 <Form style={trainerDataFormStyle}>
                     {trainerDataField.map((element, index) => (
                         <Form.Group key={index} as={Row}>
-                            <Form.Label column sm="4">{element.name}</Form.Label>
-                            <Col sm="8">{this.renderFormControl(element)}
-                            </Col>
+                            <Form.Label column sm="4"><strong>{element.name}</strong></Form.Label>
+                            <Col sm="8">{this.renderFormControl(element)}</Col>
                         </Form.Group>))}
                         {this.isFormNotValid() ? (<Alert variant="danger">
                             Form data trainer tidak valid! Pastikan semua data terisi dengan benar.
@@ -108,16 +107,18 @@ class TrainerDetail extends React.Component {
     }
 }
 
+const trainerSpecializationEnum = ['Angkat beban', 'Instruktur senam', 'Instruktur renang', 'Cardiovascular', 'Badminton'];
+
 const trainerDataField = [
-    { field: 'trainerName', name: 'Nama Lengkap', type: 'text' },
-    { field: 'trainerPlaceOfBirth', name: 'Tempat Lahir', type: 'text' },
-    { field: 'trainerDateOfBirth', name: 'Tanggal Lahir', type: 'date' },
+    { field: 'trainerName', name: 'Nama lengkap', type: 'text' },
+    { field: 'trainerPlaceOfBirth', name: 'Tempat lahir', type: 'text' },
+    { field: 'trainerDateOfBirth', name: 'Tanggal lahir', type: 'date' },
     { field: 'trainerAddress', name: 'Alamat', type: 'textarea' },
-    { field: 'trainerMobileNumber', name: 'Nomor Telepon', type: 'text' },
-    { field: 'trainerEmergencyContact', name: 'Kontak Darurat', type: 'textarea' },
-    { field: 'trainerContractStart', name: 'Kontrak Mulai', type: 'date' },
-    { field: 'trainerContractEnd', name: 'Kontrak Selesai', type: 'date' },
-    { field: 'trainerContractHour', name: 'Durasi Jam/Minggu', type: 'number' },
+    { field: 'trainerMobileNumber', name: 'Nomor telepon', type: 'text' },
+    { field: 'trainerEmergencyContact', name: 'Kontak darurat', type: 'textarea' },
+    { field: 'trainerContractStart', name: 'Kontrak mulai', type: 'date' },
+    { field: 'trainerContractEnd', name: 'Kontrak selesai', type: 'date' },
+    { field: 'trainerContractHour', name: 'Kuota jam/minggu', type: 'number' },
     { field: 'trainerManager', name: 'Manager', type: 'textarea' },
     { field: 'trainerSpecialization', name: 'Spesialisasi', type: 'select' },
 ];

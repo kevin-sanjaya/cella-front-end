@@ -1,8 +1,9 @@
-import { FETCH_MEMBER_BY_ID, FETCH_MEMBER_LIST } from "../actionTypes";
+import { FETCH_MEMBER_BY_ID, FETCH_MEMBER_LIST, FETCH_CHECKED_IN_MEMBER_LIST } from '../actionTypes';
 
 const initialState = {
     members: [],
-    memberById: {}
+    memberById: {},
+    checkedInMembers: []
 };
 
 export default function (state = initialState, action) {
@@ -16,6 +17,11 @@ export default function (state = initialState, action) {
             const memberById = action.payload;
 
             return {...state, memberById };
+        }
+        case FETCH_CHECKED_IN_MEMBER_LIST: {
+            const checkedInMembers = action.payload;
+
+            return {...state, checkedInMembers };
         }
         default:
             return state;

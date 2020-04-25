@@ -1,7 +1,7 @@
 import React from 'react';
 import { wait, fireEvent } from '@testing-library/dom';
 import { render } from '@testing-library/react';
-import store from "../../../redux/store";
+import store from '../../../redux/store';
 import { Provider } from 'react-redux';
 import CheckInMember from './CheckInMember';
 
