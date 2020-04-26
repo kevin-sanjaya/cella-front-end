@@ -1,0 +1,38 @@
+[
+    {
+        "emergencyContactId": "5cff7b9a-711a-4fab-8465-bc8f25861d0c",
+        "emergencyContactEntity": "Polsek Jkt. barat",
+        "emergencyContactWorkHour": "00.00 - 00.00",
+        "emergencyContactWorkDay": "Senin - Minggu",
+        "emergencyContactNumber": "(031) XX-XX-XXXX",
+        "emergencyContactLastUpdate": "2020-02-03",
+        "emergencyContactAvatarSrc": "police.svg"
+    },
+    {
+        "emergencyContactId": "28e95a6b-023a-4660-8b13-a9f2743f906f",
+        "emergencyContactEntity": "Kantor pemasaran",
+        "emergencyContactWorkDay": "Senin - Jumat",
+        "emergencyContactWorkHour": "08.00 - 17.00",
+        "emergencyContactNumber": "(031) XX-XX-XXXX",
+        "emergencyContactLastUpdate": "2020-01-28",
+        "emergencyContactAvatarSrc": "company.svg"
+    },
+    {
+        "emergencyContactId": "cd888390-616d-4812-9f5e-06cab6243653",
+        "emergencyContactEntity": "Pos keamanan apartemen",
+        "emergencyContactWorkHour": "00.00 - 00.00",
+        "emergencyContactWorkDay": "Senin - Minggu",
+        "emergencyContactNumber": "(031) XX-XX-XXXX",
+        "emergencyContactLastUpdate": "2020-02-03",
+        "emergencyContactAvatarSrc": "security.svg"
+    },
+    {
+        "emergencyContactId": "b2c49305-ff52-48eb-b442-48846d4343e7",
+        "emergencyContactEntity": "Pemadam kebakaran",
+        "emergencyContactWorkHour": "00.00 - 00.00",
+        "emergencyContactWorkDay": "Senin - Minggu",
+        "emergencyContactNumber": "(031) XX-XX-XXXX",
+        "emergencyContactLastUpdate": "2020-01-15",
+        "emergencyContactAvatarSrc": "firefighter.svg"
+    }
+]

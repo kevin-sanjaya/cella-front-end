@@ -20,14 +20,14 @@ const route = [
     },
     {
         id: 5, name: 'Keamanan', url: '', child: [
-            { id: 6, name: 'Jadwal acara', url: '/event' },
+            { id: 6, name: 'Jadwal acara', url: '/schedule' },
             { id: 7, name: 'Kamera CCTV', url: '/cctv' },
-            { id: 16, name: 'Kontak darurat', url: '/contact' }
+            { id: 16, name: 'Kontak darurat', url: '/emergency-contact' }
         ]
     },
     {
-        id: 14, name: 'Laporan', url: '/lost', child: [
-            { id: 15, name: 'Laporan kehilangan', url: '' }
+        id: 14, name: 'Laporan', url: '', child: [
+            { id: 15, name: 'Laporan kehilangan', url: '/report' }
         ]
     }
 ];

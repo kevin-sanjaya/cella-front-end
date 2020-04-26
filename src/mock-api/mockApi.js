@@ -2,6 +2,7 @@ import memberList from './members/members.json';
 import trainerList from './trainers/trainers.json';
 import checkedInMemberList from './checked-in-list/checked-in-members.json';
 import checkedInTrainerList from './checked-in-list/checked-in-trainers.json';
+import emergencyContactList from './emergency-contacts/emergency-contacts.json';
 
 const fetch = (data, type = null, id = null) => {
     return new Promise(resolve => {
@@ -36,4 +37,7 @@ export default {
     fetchCheckedInTrainerList() { // TODO: /check-in/trainers
         return fetch(checkedInTrainerList);
     },
+    fetchEmergencyContactList() { //TODO: /emergency-contacts
+        return fetch(emergencyContactList);
+    }
 }

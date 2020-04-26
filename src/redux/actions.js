@@ -1,4 +1,4 @@
-import { FETCH_MEMBER_BY_ID, FETCH_TRAINER_LIST, FETCH_TRAINER_BY_ID, FETCH_CHECKED_IN_MEMBER_LIST } from "./actionTypes";
+import { FETCH_MEMBER_BY_ID, FETCH_TRAINER_LIST, FETCH_TRAINER_BY_ID, FETCH_CHECKED_IN_MEMBER_LIST, FETCH_EMERGENCY_CONTACT_LIST } from "./actionTypes";
 import mockApi from '../mock-api/mockApi';
 
 export const storeReducer = (type, payload) => ({ type: type, payload: payload });
@@ -11,7 +11,7 @@ export const fetchMemberById = (id, callback) => { // TODO: change to axios
                 callback(true);
             })
             .catch(() => callback(false))
-    };
+    }
 };
 
 
@@ -23,7 +23,7 @@ export const fetchTrainerById = (id, callback) => { // TODO: change to axios
                 callback(true);
             })
             .catch(() => callback(false))
-    };
+    }
 };
 
 export const fetchTrainerList = callback => { // TODO: change to axios
@@ -34,7 +34,7 @@ export const fetchTrainerList = callback => { // TODO: change to axios
                 callback(true);
             })
             .catch(() => callback(false))
-    };
+    }
 };
 
 export const fetchCheckedInMemberList = callback => { // TODO: change to axios
@@ -45,5 +45,16 @@ export const fetchCheckedInMemberList = callback => { // TODO: change to axios
                 callback(true);
             })
             .catch(() => callback(false))
-    };
+    }
+};
+
+export const fetchEmergencyContactList = callback => {
+    return dispatch => {
+        mockApi.fetchEmergencyContactList()
+            .then(contacts => {
+                dispatch(storeReducer(FETCH_EMERGENCY_CONTACT_LIST, contacts.data));
+                callback(true);
+            })
+            .catch(() => callback(false))
+    }
 };
