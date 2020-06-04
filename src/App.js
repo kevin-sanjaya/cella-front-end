@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavigationBar from './components/navigation-bar/NavigationBar';
 import CheckIn from './components/check-in/CheckIn';
 import Trainers from './components/trainers/Trainers';
+import Members from './components/members/Members';
 import CCTV from './components/cctv/CCTV';
 import EmergencyContact from './components/emergency-contact/EmergencyContact';
 import Alert from './components/alert/Alert';
@@ -22,7 +23,10 @@ function App() {
           <Route path="/trainers/:param">
             <Trainers />
           </Route>
-          <Route path="/cctv">
+          <Route path="/members/:param">
+            <Members />
+          </Route>
+          <Route path="/security-cctv">
             <CCTV />
           </Route>
           <Route path="/emergency-contact">

@@ -1,11 +1,9 @@
 import React from 'react';
 import moment from 'moment';
 import Card from 'react-bootstrap/Card';
-import CardDeck from 'react-bootstrap/CardDeck';
 import Alert from '../alert/Alert';
 import LoadingSpinner from '../loading-spinner/LoadingSpinner';
 import serviceNotAvailableSymbol from '../../assets/service-not-available.svg';
-import './EmergencyContact.css'; 
 import { connect } from 'react-redux';
 import { fetchEmergencyContactList } from '../../redux/actions';
 import { getEmergencyContactList } from '../../redux/selectors';
@@ -13,7 +11,7 @@ import { getEmergencyContactList } from '../../redux/selectors';
 class EmergencyContact extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { isLoading: true, isServiceAvailable: true };
+        this.state = { isLoading: true, isServiceAvailable: true, addedContactCard: 0 };
     }
 
     componentDidMount = () => this.props.fetchEmergencyContactList(this.apiCallback)
@@ -24,7 +22,7 @@ class EmergencyContact extends React.Component {
         const avatar = require(`../../assets/${contact.emergencyContactAvatarSrc}`);
 
         return (
-            <Card key={index} className="card-style">
+            <Card key={index} style={emergencyContactCardStyle}>
                 <Card.Img variant="top" src={avatar} style={emergencyContactAvatarStyle} />
                 <Card.Body>
                     <Card.Title>{contact.emergencyContactEntity}</Card.Title>
@@ -47,18 +45,24 @@ class EmergencyContact extends React.Component {
         else if (!this.state.isServiceAvailable)
             return (<Alert alertSymbol={serviceNotAvailableSymbol} alertText={`Mohon maaf, sistem sedang mengalami gangguan. Silahkan panggil nomor 031xxxxxxx untuk keadaan darurat.`} />);
 
-        return (<CardDeck>
-            {this.props.emergencyContacts.map((contact, index) => this.renderEmergencyContactCard(contact, index))}
-        </CardDeck>);
+        return this.props.emergencyContacts.map((contact, index) => this.renderEmergencyContactCard(contact, index));
     }
 
     render() {
-        return (<div style={emergencyContactStyle}>{this.renderEmergencyContactList()}</div>);
+        return (<div style={emergencyContactStyle}>
+            {this.renderEmergencyContactList()}
+        </div>);
     }
 }
 
 const emergencyContactStyle = {
-    padding: '32px 5%'
+    margin: '32px 15%'
+};
+
+const emergencyContactCardStyle = {
+    width: '30%',
+    float: 'left',
+    margin: '1%'
 };
 
 const emergencyContactAvatarStyle = {

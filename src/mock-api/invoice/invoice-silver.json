@@ -1,0 +1,10 @@
+{
+    "invoiceId": "3310096651",
+    "invoiceSubscriptionType": "Silver",
+    "invoiceAdministrationFee": "50.000",
+    "invoiceSubscriptionMonthlyCost": "450.000",
+    "invoiceSubscriptionTotalCost": "2.700.000",
+    "invoiceDiscount": null,
+    "invoiceDiscountReason": null,
+    "invoiceTotal": "2.750.000"
+}

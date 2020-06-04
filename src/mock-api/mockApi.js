@@ -3,6 +3,10 @@ import trainerList from './trainers/trainers.json';
 import checkedInMemberList from './checked-in-list/checked-in-members.json';
 import checkedInTrainerList from './checked-in-list/checked-in-trainers.json';
 import emergencyContactList from './emergency-contacts/emergency-contacts.json';
+import roomScheduleList from './room-schedule/room-schedule.json';
+import bronzeInvoice from './invoice/invoice-bronze.json';
+import silverInvoice from './invoice/invoice-silver.json';
+import goldInvoice from './invoice/invoice-gold.json';
 
 const fetch = (data, type = null, id = null) => {
     return new Promise(resolve => {
@@ -39,5 +43,24 @@ export default {
     },
     fetchEmergencyContactList() { //TODO: /emergency-contacts
         return fetch(emergencyContactList);
+    },
+    fetchRoomScheduleList() { //TODO: /room-schedule
+        return fetch(roomScheduleList);
+    },
+    fetchInvoice(type) { //TODO: /invoice/:type
+        switch (type) {
+            case 'Bronze': {
+                return fetch(bronzeInvoice);
+            }
+            case 'Silver': {
+                return fetch(silverInvoice);
+            }
+            case 'Gold': {
+                return fetch(goldInvoice);
+            }
+            default: {
+                return null;
+            }
+        } 
     }
 }

@@ -1,0 +1,10 @@
+{
+    "invoiceId": "1128890032",
+    "invoiceSubscriptionType": "Gold",
+    "invoiceAdministrationFee": "50.000",
+    "invoiceSubscriptionMonthlyCost": "600.000",
+    "invoiceSubscriptionTotalCost": "3.600.000",
+    "invoiceDiscount": null,
+    "invoiceDiscountReason": null,
+    "invoiceTotal": "3.650.000"
+}

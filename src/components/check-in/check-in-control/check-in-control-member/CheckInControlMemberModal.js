@@ -30,7 +30,7 @@ class CheckInControlMember extends React.Component {
         if (this.state.isCheckOutConfirmed)
             return (<div>
                 <Button variant="danger" onClick={() => this.setState({ isCheckOutConfirmed: false })} style={checkOutModalBodyStyle}>Batalkan</Button> &nbsp;
-                <OverlayTrigger placement="right" overlay={<Tooltip>POST request interactions are disabled in this demo environment.</Tooltip>}>
+                <OverlayTrigger placement="right" overlay={<Tooltip>POST request interactions have been disabled in this demo environment.</Tooltip>}>
                     <Button variant="primary" style={checkOutModalBodyStyle}>Konfirmasi cek-out</Button>
                 </OverlayTrigger>
             </div>);
@@ -92,7 +92,7 @@ class CheckInControlMember extends React.Component {
                             <tr>
                                 <td colSpan="2">
                                     <Form.Check inline onChange={checkOutCondition2 => this.setState({ checkOutCondition2 })}
-                                        label="Barang rental telah dikembalikan tanpa kerusakan." type="checkbox" />
+                                        label="Perlengkapan rental telah dikembalikan tanpa kerusakan." type="checkbox" />
                                 </td>
                             </tr>
                         </tbody>

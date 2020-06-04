@@ -11,7 +11,7 @@ class CCTV extends React.Component {
 
     componentDidMount = () => {
         this.interval = setInterval(() => {
-            this.setState({ progress: this.state.progress >= 100 ? 100 : this.state.progress + 20 });
+            this.setState({ progress: this.state.progress >= 100 ? 100 : this.state.progress + (this.state.progress + 15 === 105 ? 10 : 15) });
 
             if (this.state.progress === 100)
                 setTimeout(function () {

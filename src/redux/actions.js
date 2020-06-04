@@ -1,4 +1,7 @@
-import { FETCH_MEMBER_BY_ID, FETCH_TRAINER_LIST, FETCH_TRAINER_BY_ID, FETCH_CHECKED_IN_MEMBER_LIST, FETCH_EMERGENCY_CONTACT_LIST } from "./actionTypes";
+import {
+    FETCH_MEMBER_BY_ID, FETCH_TRAINER_LIST, FETCH_TRAINER_BY_ID, FETCH_CHECKED_IN_MEMBER_LIST,
+    FETCH_EMERGENCY_CONTACT_LIST, FETCH_ROOM_SCHEDULE_LIST, FETCH_INVOICE
+} from "./actionTypes";
 import mockApi from '../mock-api/mockApi';
 
 export const storeReducer = (type, payload) => ({ type: type, payload: payload });
@@ -53,6 +56,28 @@ export const fetchEmergencyContactList = callback => {
         mockApi.fetchEmergencyContactList()
             .then(contacts => {
                 dispatch(storeReducer(FETCH_EMERGENCY_CONTACT_LIST, contacts.data));
+                callback(true);
+            })
+            .catch(() => callback(false))
+    }
+};
+
+export const fetchRoomScheduleList = callback => {
+    return dispatch => {
+        mockApi.fetchRoomScheduleList()
+            .then(schedules => {
+                dispatch(storeReducer(FETCH_ROOM_SCHEDULE_LIST, schedules.data));
+                callback(true);
+            })
+            .catch(() => callback(false))
+    }
+};
+
+export const fetchInvoice = (type, callback) => {
+    return dispatch => {
+        mockApi.fetchInvoice(type)
+            .then(invoice => {
+                dispatch(storeReducer(FETCH_INVOICE, invoice.data));
                 callback(true);
             })
             .catch(() => callback(false))

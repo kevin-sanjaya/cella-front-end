@@ -69,7 +69,7 @@ class MemberInfo extends React.Component {
         if (this.state.isFormShowed)
             return (<div>
                 <Button variant="danger" onClick={() => this.setState({ isFormShowed: false })}>Batalkan</Button> &nbsp;
-                <OverlayTrigger placement="right" overlay={<Tooltip>POST request interactions are disabled in this demo environment.</Tooltip>}>
+                <OverlayTrigger placement="right" overlay={<Tooltip>POST request interactions have been disabled in this demo environment.</Tooltip>}>
                     <Button variant="primary" disabled={this.state.storageNumber.length === 0} onClick={this.checkInMember}>Konfirmasi cek-in</Button>
                 </OverlayTrigger>
             </div>);

@@ -38,7 +38,7 @@ class TrainerDetail extends React.Component {
 
         return (<div>
             <Button variant="danger" onClick={this.cancelFormEdit}>Batalkan</Button> &nbsp;
-            <OverlayTrigger placement="right" overlay={<Tooltip>POST request interactions are disabled in this demo environment.</Tooltip>}>
+            <OverlayTrigger placement="right" overlay={<Tooltip>POST request interactions have been disabled in this demo environment.</Tooltip>}>
                 <Button variant="primary" disabled={this.isFormNotValid()}>Simpan data</Button>
             </OverlayTrigger>
         </div>);
@@ -50,7 +50,8 @@ class TrainerDetail extends React.Component {
                 onChange={input => this.updateForm(input.target.value, element.field)} value={this.state.trainerData[element.field]} />);
 
         else if (element.type === 'select')
-            return (<Form.Control as="select" disabled={this.state.isFormLocked} value={this.state.trainerData[element.field]}>
+            return (<Form.Control as="select" disabled={this.state.isFormLocked} value={this.state.trainerData[element.field]}
+                onChange={input => this.updateForm(input.target.value, element.field)}>
                 {trainerSpecializationEnum.map((value, index) => (<option key={index} value={value}>{value}</option>))}
             </Form.Control>);
 
@@ -89,8 +90,8 @@ class TrainerDetail extends React.Component {
                             <Form.Label column sm="4"><strong>{element.name}</strong></Form.Label>
                             <Col sm="8">{this.renderFormControl(element)}</Col>
                         </Form.Group>))}
-                        {this.isFormNotValid() ? (<Alert variant="danger">
-                            Form data trainer tidak valid! Pastikan semua data terisi dengan benar.
+                    {this.isFormNotValid() ? (<Alert variant="danger">
+                        Form data trainer tidak valid! Pastikan semua data terisi dengan benar.
                         </Alert>) : null}
                 </Form>
                 {this.renderFormButton()}
@@ -116,8 +117,8 @@ const trainerDataField = [
     { field: 'trainerAddress', name: 'Alamat', type: 'textarea' },
     { field: 'trainerMobileNumber', name: 'Nomor telepon', type: 'text' },
     { field: 'trainerEmergencyContact', name: 'Kontak darurat', type: 'textarea' },
-    { field: 'trainerContractStart', name: 'Kontrak mulai', type: 'date' },
-    { field: 'trainerContractEnd', name: 'Kontrak selesai', type: 'date' },
+    { field: 'trainerContractStart', name: 'Tgl. kontrak mulai', type: 'date' },
+    { field: 'trainerContractEnd', name: 'Tgl. kontrak selesai', type: 'date' },
     { field: 'trainerContractHour', name: 'Kuota jam/minggu', type: 'number' },
     { field: 'trainerManager', name: 'Manager', type: 'textarea' },
     { field: 'trainerSpecialization', name: 'Spesialisasi', type: 'select' },

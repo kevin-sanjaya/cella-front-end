@@ -1,0 +1,51 @@
+{
+    "soedirmanRoomSchedule": [
+        {
+            "roomScheduleId" : "1ecb20f2-e725-4842-af10-67165698e2b4",
+            "roomScheduleTimeslot" : "06:00 - 08:00",
+            "roomScheduleActivity": "Yoga kebugaran",
+            "roomScheduleInstructor": "Sdr. Lani Setiabudi"
+        },
+        {
+            "roomScheduleId" : "473f02ed-746e-42f1-988f-2e991d6a3bb4",
+            "roomScheduleTimeslot" : "10:00 - 12:00",
+            "roomScheduleActivity": "Squash dasar",
+            "roomScheduleInstructor": "Sdr. Steve Teguh"
+        },
+        {
+            "roomScheduleId" : "f112f844-40ca-4549-b693-2c9d14499e2f",
+            "roomScheduleTimeslot" : "15:00 - 17:00",
+            "roomScheduleActivity": "Wushu",
+            "roomScheduleInstructor": "Sdr. Budi"
+        }
+    ],
+    "diponegoroRoomSchedule": [
+        {
+            "roomScheduleId" : "51cb9aa5-dd39-496a-8c4b-ef66b8fe59d7",
+            "roomScheduleTimeslot" : "18:00 - 20:00",
+            "roomScheduleActivity": "Senam modern",
+            "roomScheduleInstructor": "Sdr. Nanik"
+        }
+    ],
+    "pattimuraRoomSchedule": [],
+    "hasanuddinRoomSchedule": [
+        {
+            "roomScheduleId" : "1ecb20f2-e725-4842-af10-67165698e2b4",
+            "roomScheduleTimeslot" : "10:00 - 12:00",
+            "roomScheduleActivity": "Sesi catur",
+            "roomScheduleInstructor": "Bpk. Imam"
+        },
+        {
+            "roomScheduleId" : "fbb9d175-88c5-4a07-95fc-d9f2d823e101",
+            "roomScheduleTimeslot" : "15:00 - 17:00",
+            "roomScheduleActivity": "Kpop modern dance",
+            "roomScheduleInstructor": "Sdr. Ani Anjani"
+        },
+        {
+            "roomScheduleId" : "1984887b-fe83-46b2-a1a2-3526a4f45d63",
+            "roomScheduleTimeslot" : "20:00 - 22:00",
+            "roomScheduleActivity": "Salsa dance",
+            "roomScheduleInstructor": "Sdr. Tantok"
+        }
+    ]
+}

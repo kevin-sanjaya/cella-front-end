@@ -1,0 +1,10 @@
+{
+    "invoiceId": "3310561330",
+    "invoiceSubscriptionType": "Bronze",
+    "invoiceAdministrationFee": "50.000",
+    "invoiceSubscriptionMonthlyCost": "300.000",
+    "invoiceSubscriptionTotalCost": "1.800.000",
+    "invoiceDiscount": "200.000",
+    "invoiceDiscountReason": "Promo ulang tahun Jakarta",
+    "invoiceTotal": "1.650.000"
+}
