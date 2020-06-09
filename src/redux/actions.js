@@ -1,6 +1,6 @@
 import {
     FETCH_MEMBER_BY_ID, FETCH_TRAINER_LIST, FETCH_TRAINER_BY_ID, FETCH_CHECKED_IN_MEMBER_LIST,
-    FETCH_EMERGENCY_CONTACT_LIST, FETCH_ROOM_SCHEDULE_LIST, FETCH_INVOICE
+    FETCH_EMERGENCY_CONTACT_LIST, FETCH_ROOM_SCHEDULE_LIST, FETCH_INVOICE, FETCH_CHECKED_IN_TRAINER_LIST
 } from "./actionTypes";
 import mockApi from '../mock-api/mockApi';
 
@@ -45,6 +45,17 @@ export const fetchCheckedInMemberList = callback => { // TODO: change to axios
         mockApi.fetchCheckedInMemberList()
             .then(members => {
                 dispatch(storeReducer(FETCH_CHECKED_IN_MEMBER_LIST, members.data));
+                callback(true);
+            })
+            .catch(() => callback(false))
+    }
+};
+
+export const fetchCheckedInTrainerList = callback => { // TODO: change to axios
+    return dispatch => {
+        mockApi.fetchCheckedInTrainerList()
+            .then(trainers => {
+                dispatch(storeReducer(FETCH_CHECKED_IN_TRAINER_LIST, trainers.data));
                 callback(true);
             })
             .catch(() => callback(false))

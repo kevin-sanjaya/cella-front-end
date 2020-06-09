@@ -4,24 +4,24 @@ import Table from 'react-bootstrap/Table';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
-import CheckInControlMemberModal from './CheckInControlMemberModal';
+import CheckInControlTrainerModal from './CheckInControlTrainerModal';
 import Alert from '../../../alert/Alert';
 import LoadingSpinner from '../../../loading-spinner/LoadingSpinner';
 import serviceNotAvailableSymbol from '../../../../assets/service-not-available.svg';
 import shoesRentalSymbol from '../../../../assets/shoes.svg';
 import towellRentalSymbol from '../../../../assets/towel.svg';
 
-class CheckInControlMember extends React.Component {
+class CheckInControlTrainer extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { memberName: '', timestamp: null, isModalShowed: false, modalData: null };
+        this.state = { trainerName: '', timestamp: null, isModalShowed: false, modalData: null };
     }
 
     componentDidMount = () => this.interval = setInterval(() => this.setState({ timestamp: new Date().getTime() }), 1000)
 
     componentWillUnmount = () => clearInterval(this.interval)
 
-    updateMemberName = memberName => this.setState({ memberName })
+    updateTrainerName = trainerName => this.setState({ trainerName })
 
     renderCheckInTimestamp = timestamp => { //TODO: change to moment.js
         const timestampDifference = Math.abs(this.state.timestamp - new Date(timestamp).getTime()) / 1000;
@@ -33,24 +33,24 @@ class CheckInControlMember extends React.Component {
 
     renderCheckedInMemberList = () => {
         if (this.props.isLoading)
-            return (<LoadingSpinner text="Memuat data member yang telah cek-in..." />);
+            return (<LoadingSpinner text="Memuat data trainer yang telah cek-in..." />);
 
         else if (!this.props.isServiceAvailable)
             return (<Alert alertSymbol={serviceNotAvailableSymbol} alertText="Mohon maaf, sistem sedang mengalami gangguan." />);
 
         return (<Table hover style={tableStyle}>
             <thead>
-                <tr>{['No.', 'Nama member', 'Tgl. cek-in', 'Durasi cek-in', 'No. loker', 'Rental'].map((value, index) => (<th key={index}>{value}</th>))}</tr>
+                <tr>{['No.', 'Nama trainer', 'Tgl. cek-in', 'Durasi cek-in', 'No. loker', 'Rental'].map((value, index) => (<th key={index}>{value}</th>))}</tr>
             </thead>
             <tbody>
-                {this.props.checkedInMembers.length === 0 ? (<tr><td colSpan="6"><h5 style={memberNotFoundStyle}>Hasil pencarian member tidak ditemukan.</h5></td></tr>) : null}
-                {this.props.checkedInMembers.map((member, index) => (<tr key={index} style={tableRowStyle} onClick={() => this.setState({ isModalShowed: true, modalData: member })}>
+                {this.props.checkedInTrainers.length === 0 ? (<tr><td colSpan="6"><h5 style={trainerNotFoundStyle}>Hasil pencarian trainer tidak ditemukan.</h5></td></tr>) : null}
+                {this.props.checkedInTrainers.map((trainer, index) => (<tr key={index} style={tableRowStyle} onClick={() => this.setState({ isModalShowed: true, modalData: trainer })}>
                     <td>{++index}</td>
-                    <td>{member.member.memberName}</td>
-                    <td>{moment(member.checkInEventTimestamp).format("DD/MM/YYYY")}</td>
-                    <td>{this.renderCheckInTimestamp(member.checkInEventTimestamp)}</td>
-                    <td>{member.checkInEventStorageNumber}</td>
-                    <td>{member.checkInEventProperty.length !== 0 ? member.checkInEventProperty.map((property, index) => (
+                    <td>{trainer.trainer.trainerName}</td>
+                    <td>{moment(trainer.checkInEventTimestamp).format("DD/MM/YYYY")}</td>
+                    <td>{this.renderCheckInTimestamp(trainer.checkInEventTimestamp)}</td>
+                    <td>{trainer.checkInEventStorageNumber}</td>
+                    <td>{trainer.checkInEventProperty.length !== 0 ? trainer.checkInEventProperty.map((property, index) => (
                         <img src={property === 'Shoes' ? shoesRentalSymbol : towellRentalSymbol} key={index} style={rentalSymbolStyle} alt="rental-property" />)) : '-'}
                     </td>
                 </tr>))}
@@ -61,14 +61,14 @@ class CheckInControlMember extends React.Component {
     render() {
         return (<div>
             <InputGroup className="mb-3" size="md">
-                <FormControl placeholder="Masukan nama depan/belakang member" value={this.state.memberName} onChange={input => this.updateMemberName(input.target.value)} />
+                <FormControl placeholder="Masukan nama depan/belakang trainer" value={this.state.trainerName} onChange={input => this.updateTrainerName(input.target.value)} />
                 <InputGroup.Append>
-                    <Button style={clearSearchButtonStyle} onClick={() => this.setState({ memberName: '' })}>x</Button>
-                    <Button variant="primary" onClick={() => this.props.filterMemberList(this.state.memberName)}>Filter member</Button>
+                    <Button style={clearSearchButtonStyle} onClick={() => this.setState({ trainerName: '' })}>x</Button>
+                    <Button variant="primary" onClick={() => this.props.filterTrainerList(this.state.trainerName)}>Filter trainer</Button>
                 </InputGroup.Append>
             </InputGroup>
             {this.renderCheckedInMemberList()}
-            {this.state.modalData !== null ? (<CheckInControlMemberModal modalData={this.state.modalData} isModalShowed={this.state.isModalShowed}
+            {this.state.modalData !== null ? (<CheckInControlTrainerModal modalData={this.state.modalData} isModalShowed={this.state.isModalShowed}
                 renderCheckInTimestamp={this.renderCheckInTimestamp} hideModal={() => this.setState({ isModalShowed: false })} />) : null}
         </div>);
     }
@@ -94,8 +94,8 @@ const tableRowStyle = {
     textAlign: 'left'
 };
 
-const memberNotFoundStyle = {
+const trainerNotFoundStyle = {
     textAlign: 'center'
 };
 
-export default CheckInControlMember;
+export default CheckInControlTrainer;

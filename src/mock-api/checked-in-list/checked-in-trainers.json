@@ -9,8 +9,8 @@
             "trainerSpecialization": "Angkat Beban",
             "trainerAvatarSrc": "mock-avatar.svg"
         },
-        "checkInEventTimestamp": "17:49:35",
-        "checkInEventStorageNumber": "11C",
+        "checkInEventTimestamp": "2020-04-19T07:00:21.114Z",
+        "checkInEventStorageNumber": "33A",
         "checkInEventProperty": ["Shoes"]
     },
     {
@@ -23,7 +23,7 @@
             "trainerSpecialization": "Instruktur Senam",
             "trainerAvatarSrc": "mock-avatar.svg"
         },
-        "checkInEventTimestamp": "10:12:33",
+        "checkInEventTimestamp": "2020-04-19T08:15:20.114Z",
         "checkInEventStorageNumber": "44A",
         "checkInEventProperty": ["Towel"]
     }

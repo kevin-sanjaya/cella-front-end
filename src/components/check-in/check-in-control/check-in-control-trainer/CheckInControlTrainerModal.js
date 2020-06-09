@@ -6,24 +6,16 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
-import goldSubscriptionSymbol from '../../../../assets/gold-member.svg';
-import silverSubscriptionSymbol from '../../../../assets/silver-member.svg';
-import bronzeSubscriptionSymbol from '../../../../assets/bronze-member.svg';
 import shoesRentalSymbol from '../../../../assets/shoes.svg';
 import towellRentalSymbol from '../../../../assets/towel.svg';
 
-class CheckInControlMember extends React.Component {
+class CheckInControlTrainerModal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            memberAvatarSrc: require(`../../../../assets/${this.props.modalData.member.memberAvatarSrc}`),
+            trainerAvatarSrc: require(`../../../../assets/${this.props.modalData.trainer.trainerAvatarSrc}`),
             checkOutCondition1: false, checkOutCondition2: false, isCheckOutConfirmed: false
         }
-    }
-
-    renderMemberSubscriptionSymbol = tier => {
-        const src = tier === 'Gold' ? goldSubscriptionSymbol : tier === 'Silver' ? silverSubscriptionSymbol : bronzeSubscriptionSymbol;
-        return (<img src={src} style={memberSubscriptionSymbolStyle} alt="member-subscription" />);
     }
 
     renderCheckOutFormButton = () => {
@@ -36,7 +28,7 @@ class CheckInControlMember extends React.Component {
             </div>);
 
         return (<Button variant="primary" style={checkOutModalBodyStyle} onClick={() => this.setState({ isCheckOutConfirmed: true })}
-            disabled={!this.state.checkOutCondition1 || !this.state.checkOutCondition2}>Cek-out member</Button>);
+            disabled={!this.state.checkOutCondition1 || !this.state.checkOutCondition2}>Cek-out trainer</Button>);
     }
 
     render() {
@@ -44,11 +36,11 @@ class CheckInControlMember extends React.Component {
             <Modal show={this.props.isModalShowed} style={checkOutModalStyle} onHide={() => this.props.hideModal()}>
                 <Modal.Header closeButton>
                     <Modal.Title style={checkOutModalTitleStyle}>
-                        Detail cek-in {this.props.modalData.member.memberId}
+                        Detail cek-in {this.props.modalData.trainer.trainerId}
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body style={checkOutModalBodyStyle}>
-                    <img src={this.state.memberAvatarSrc} alt="member-avatar" style={memberAvatarStyle} />
+                    <img src={this.state.trainerAvatarSrc} alt="member-avatar" style={trainerAvatarStyle} />
                     <Table borderless style={tableStyle}>
                         <tbody>
                             <tr>
@@ -56,14 +48,12 @@ class CheckInControlMember extends React.Component {
                                 <td>{this.props.modalData.checkInEventId}</td>
                             </tr>
                             <tr>
-                                <td><strong>Nama member</strong></td>
-                                <td>{this.props.modalData.member.memberName}</td>
+                                <td><strong>Nama trainer</strong></td>
+                                <td>{this.props.modalData.trainer.trainerName}</td>
                             </tr>
                             <tr>
-                                <td><strong>Jenis member</strong></td>
-                                <td>{this.props.modalData.member.memberSubscriptionTier}
-                                    {this.renderMemberSubscriptionSymbol(this.props.modalData.member.memberSubscriptionTier)}
-                                </td>
+                                <td><strong>Spesialisasi</strong></td>
+                                <td>{this.props.modalData.trainer.trainerSpecialization}</td>
                             </tr>
                             <tr>
                                 <td><strong>Tgl. cek-in</strong></td>
@@ -116,12 +106,7 @@ const checkOutModalBodyStyle = {
     fontSize: '14px',
 };
 
-const memberSubscriptionSymbolStyle = {
-    width: '24px',
-    marginLeft: '4px'
-};
-
-const memberAvatarStyle = {
+const trainerAvatarStyle = {
     width: '160px',
     marginBottom: '16px'
 };
@@ -135,4 +120,4 @@ const tableStyle = {
     textAlign: 'left'
 };
 
-export default CheckInControlMember;
+export default CheckInControlTrainerModal;
