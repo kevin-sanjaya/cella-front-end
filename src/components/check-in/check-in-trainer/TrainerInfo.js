@@ -8,6 +8,11 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import shoesRentalSymbol from '../../../assets/shoes.svg';
 import towellRentalSymbol from '../../../assets/towel.svg';
+import weightliftingSymbol from '../../../assets/weightlifting.svg';
+import gymnasticSymbol from '../../../assets/gymnastic.svg';
+import swimmingSymbol from '../../../assets/swimming.svg';
+import badmintonSymbol from '../../../assets/badminton.svg';
+import cardioSymbol from '../../../assets/cardio.svg';
 
 class TrainerInfo extends React.Component {
     constructor(props) {
@@ -16,6 +21,23 @@ class TrainerInfo extends React.Component {
     }
 
     updateStorageNumber = storageNumber => this.setState({ storageNumber })
+
+    getSpecializationSymbol = specialization => {
+        switch (specialization) {
+            case "Angkat beban":
+                return weightliftingSymbol;
+            case "Instruktur senam":
+                return gymnasticSymbol;
+            case "Instruktur renang":
+                return swimmingSymbol;
+            case "Badminton":
+                return badmintonSymbol;
+            case "Cardiovascular":
+                return cardioSymbol;
+            default:
+                return null;
+        }
+    }
 
     renderTrainerDataOrCheckInForm = () => {
         if (this.state.isFormShowed)
@@ -45,12 +67,16 @@ class TrainerInfo extends React.Component {
                     <td>{moment(this.props.trainer.trainerDateOfBirth).format("DD/MM/YYYY")}</td>
                 </tr>
                 <tr>
-                    <td style={centeredTableRowStyle}><strong>Spesialisasi</strong></td>
-                    <td>{this.props.trainer.trainerSpecialization}</td>
+                    <td><strong>Tgl. kontrak berakhir</strong></td>
+                    <td>{moment(this.props.trainer.trainerContractEnd).format("DD/MM/YYYY")}</td>
                 </tr>
                 <tr>
-                    <td><strong>Kontrak berlaku sampai</strong></td>
-                    <td>{moment(this.props.trainer.trainerContractEnd).format("DD/MM/YYYY")}</td>
+                    <td style={centeredTableRowStyle}><strong>Sisa kuota jam kerja</strong></td>
+                    <td>{this.props.trainer.trainerContractHour}/{this.props.trainer.trainerRemainingWeekContractHour} Jam
+                        {this.props.trainer.trainerContractHourWarning ? (<OverlayTrigger placement="right" overlay={<Tooltip>
+                            Kuota jam kerja masih tersisa lebih dari 1/3 total jam kerja. Mohon peringatkan trainer.</Tooltip>}>
+                            <span role="img" aria-label="warning"> &#10071;</span>
+                        </OverlayTrigger>) : null}</td>
                 </tr>
             </tbody>
         </Table>);
@@ -68,14 +94,15 @@ class TrainerInfo extends React.Component {
         return (<Button variant="primary" onClick={() => this.setState({ isFormShowed: true })}>Cek-in trainer</Button>);
     }
 
-    checkInTrainer = () => {} // TODO: coming soon
+    checkInTrainer = () => { } // TODO: coming soon
 
     render() {
         return (
             <Card>
                 <Card.Img variant="top" src={this.state.trainerAvatarSrc} style={trainerAvatarStyle} />
                 <Card.Body>
-                    <Card.Title>{this.props.trainer.trainerName}</Card.Title>
+                    <Card.Title>{this.props.trainer.trainerName} &nbsp; <img src={this.getSpecializationSymbol(this.props.trainer.trainerSpecialization)}
+                        alt="specialization-symbol" style={trainerSpecializationSymbolStyle} /></Card.Title>
                     {this.renderTrainerDataOrCheckInForm()}
                     {this.renderCheckInFormButton()}
                     <h5 style={warningTextStyle}>*Pastikan bahwa data diatas sama dengan data yang tertera di kartu trainer.</h5>
@@ -126,5 +153,9 @@ const warningTextStyle = {
     fontSize: '18px',
     color: 'red'
 };
+
+const trainerSpecializationSymbolStyle = {
+    width: '30px'
+}
 
 export default TrainerInfo;

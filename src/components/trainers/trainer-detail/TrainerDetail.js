@@ -46,17 +46,17 @@ class TrainerDetail extends React.Component {
 
     renderFormControl = element => {
         if (element.type === 'textarea')
-            return (<Form.Control as={element.type} rows="2" disabled={this.state.isFormLocked}
+            return (<Form.Control as={element.type} rows="2" disabled={element.editable ? this.state.isFormLocked : true}
                 onChange={input => this.updateForm(input.target.value, element.field)} value={this.state.trainerData[element.field]} />);
 
         else if (element.type === 'select')
-            return (<Form.Control as="select" disabled={this.state.isFormLocked} value={this.state.trainerData[element.field]}
+            return (<Form.Control as="select" disabled value={this.state.trainerData[element.field]}
                 onChange={input => this.updateForm(input.target.value, element.field)}>
                 {trainerSpecializationEnum.map((value, index) => (<option key={index} value={value}>{value}</option>))}
             </Form.Control>);
 
         else
-            return (<Form.Control type={element.type} disabled={this.state.isFormLocked}
+            return (<Form.Control type={element.type} disabled={element.editable ? this.state.isFormLocked : true}
                 onChange={input => this.updateForm(input.target.value, element.field)} value={this.state.trainerData[element.field]} />);
     }
 
@@ -111,17 +111,17 @@ class TrainerDetail extends React.Component {
 const trainerSpecializationEnum = ['Angkat beban', 'Instruktur senam', 'Instruktur renang', 'Cardiovascular', 'Badminton'];
 
 const trainerDataField = [
-    { field: 'trainerName', name: 'Nama lengkap', type: 'text' },
-    { field: 'trainerPlaceOfBirth', name: 'Tempat lahir', type: 'text' },
-    { field: 'trainerDateOfBirth', name: 'Tanggal lahir', type: 'date' },
-    { field: 'trainerAddress', name: 'Alamat', type: 'textarea' },
-    { field: 'trainerMobileNumber', name: 'Nomor telepon', type: 'text' },
-    { field: 'trainerEmergencyContact', name: 'Kontak darurat', type: 'textarea' },
-    { field: 'trainerContractStart', name: 'Tgl. kontrak mulai', type: 'date' },
-    { field: 'trainerContractEnd', name: 'Tgl. kontrak selesai', type: 'date' },
-    { field: 'trainerContractHour', name: 'Kuota jam/minggu', type: 'number' },
-    { field: 'trainerManager', name: 'Manager', type: 'textarea' },
-    { field: 'trainerSpecialization', name: 'Spesialisasi', type: 'select' },
+    { field: 'trainerName', name: 'Nama lengkap', type: 'text', editable: false },
+    { field: 'trainerPlaceOfBirth', name: 'Tempat lahir', type: 'text', editable: false },
+    { field: 'trainerDateOfBirth', name: 'Tanggal lahir', type: 'date', editable: false },
+    { field: 'trainerAddress', name: 'Alamat', type: 'textarea', editable: true },
+    { field: 'trainerMobileNumber', name: 'Nomor telepon', type: 'text', editable: true },
+    { field: 'trainerEmergencyContact', name: 'Kontak darurat', type: 'textarea', editable: true },
+    { field: 'trainerContractStart', name: 'Tgl. kontrak mulai', type: 'date', editable: false },
+    { field: 'trainerContractEnd', name: 'Tgl. kontrak selesai', type: 'date', editable: false },
+    { field: 'trainerContractHour', name: 'Kuota jam/minggu', type: 'number', editable: false },
+    { field: 'trainerManager', name: 'Manager', type: 'textarea', editable: false },
+    { field: 'trainerSpecialization', name: 'Spesialisasi', type: 'select', editable: false },
 ];
 
 const trainerDetailStyle = {

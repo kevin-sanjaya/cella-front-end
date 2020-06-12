@@ -9,6 +9,11 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import Alert from '../../alert/Alert';
 import LoadingSpinner from '../../loading-spinner/LoadingSpinner';
 import serviceNotAvailableSymbol from '../../../assets/service-not-available.svg';
+import weightliftingSymbol from '../../../assets/weightlifting.svg';
+import gymnasticSymbol from '../../../assets/gymnastic.svg';
+import swimmingSymbol from '../../../assets/swimming.svg';
+import badmintonSymbol from '../../../assets/badminton.svg';
+import cardioSymbol from '../../../assets/cardio.svg';
 import { connect } from 'react-redux';
 import { fetchTrainerList } from '../../../redux/actions';
 import { getTrainerList } from '../../../redux/selectors';
@@ -32,6 +37,23 @@ class TrainerList extends React.Component {
         this.setState({ trainers });
     }
 
+    getSpecializationSymbol = specialization => {
+        switch (specialization) {
+            case "Angkat beban":
+                return weightliftingSymbol;
+            case "Instruktur senam":
+                return gymnasticSymbol;
+            case "Instruktur renang":
+                return swimmingSymbol;
+            case "Badminton":
+                return badmintonSymbol;
+            case "Cardiovascular":
+                return cardioSymbol;
+            default:
+                return null;
+        }
+    }
+
     renderTrainerList = () => {
         if (this.state.isLoading)
             return (<LoadingSpinner text="Memuat daftar trainer..." />);
@@ -44,7 +66,7 @@ class TrainerList extends React.Component {
                 <tr>
                     <th>No.</th>
                     <th>Nama lengkap</th>
-                    <th>Tgl. kontrak selesai</th>
+                    <th>Tgl. kontrak berakhir</th>
                     <th>Kuota jam/minggu</th>
                     <th>Sisa kuota</th>
                     <th>Spesialisasi</th>
@@ -61,9 +83,10 @@ class TrainerList extends React.Component {
                         {trainer.trainerContractHourWarning ? (<OverlayTrigger placement="right" overlay={<Tooltip>
                             Kuota jam kerja masih tersisa lebih dari 1/3 total jam kerja. Mohon peringatkan trainer.</Tooltip>}>
                             <span role="img" aria-label="warning"> &#10071;</span>
-                        </OverlayTrigger>) : null }
+                        </OverlayTrigger>) : null}
                     </td>
-                    <td>{trainer.trainerSpecialization}</td>
+                    <td>{trainer.trainerSpecialization} &nbsp; <img src={this.getSpecializationSymbol(trainer.trainerSpecialization)}
+                        alt="specialization-symbol" style={trainerSpecializationSymbolStyle} /></td>
                 </tr>))}
             </tbody>
         </Table>);
@@ -106,6 +129,10 @@ const tableStyle = {
 const tableRowStyle = {
     cursor: 'pointer'
 };
+
+const trainerSpecializationSymbolStyle = {
+    width: '25px'
+}
 
 function mapStateToProps(state) {
     const trainers = getTrainerList(state);

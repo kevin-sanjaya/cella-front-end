@@ -110,7 +110,7 @@ const newMemberFormFieldList = [
     { field: 'memberMobileNumber', name: 'Nomor telepon', type: 'text' },
     { field: 'memberEmergencyContact', name: 'Kontak darurat', type: 'textarea' },
     { field: 'memberOccupation', name: 'Pekerjaan', type: 'text' },
-    { field: 'memberStartDate', name: 'Tgl. member dimulai', type: 'date' },
+    { field: 'memberStartDate', name: 'Tgl. member terdaftar', type: 'date' },
     { field: 'memberSubscriptionTier', name: 'Jenis member', type: 'select' },
     { field: 'memberAvatarSrc', name: 'Foto member', type: 'file' }
 ];

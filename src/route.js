@@ -20,7 +20,6 @@ const route = [
     },
     {
         id: 5, name: 'Keamanan', url: '', child: [
-            { id: 6, name: 'Jadwal ruang acara', url: '/room-schedule' },
             { id: 7, name: 'Kamera CCTV', url: '/security-cctv' },
             { id: 16, name: 'Kontak darurat', url: '/emergency-contact' }
         ]

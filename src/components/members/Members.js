@@ -1,16 +1,21 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, withRouter } from 'react-router-dom';
 import NewMember from './new-member/NewMember';
-import Alert from '../alert/Alert';
-import notFoundSymbol from '../../assets/404.svg';
+import MemberList from './member-list/MemberList';
+import MemberDetail from './member-detail/MemberDetail';
 
 function Members() {
     let { param } = useParams();
  
     if (param === 'new')
         return <NewMember />
+    
+    else if (param === 'all')
+        return <MemberListRouteWrapper />
 
-    return (<Alert alertSymbol={notFoundSymbol} alertText="Mohon maaf, halaman ini tidak dapat ditemukan." />);
+    return <MemberDetail memberId={param} />
 }
+
+const MemberListRouteWrapper = withRouter(({ history }) => (<MemberList history={history} />));
 
 export default Members;

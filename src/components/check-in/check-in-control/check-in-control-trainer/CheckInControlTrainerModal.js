@@ -8,6 +8,11 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import shoesRentalSymbol from '../../../../assets/shoes.svg';
 import towellRentalSymbol from '../../../../assets/towel.svg';
+import weightliftingSymbol from '../../../../assets/weightlifting.svg';
+import gymnasticSymbol from '../../../../assets/gymnastic.svg';
+import swimmingSymbol from '../../../../assets/swimming.svg';
+import badmintonSymbol from '../../../../assets/badminton.svg';
+import cardioSymbol from '../../../../assets/cardio.svg';
 
 class CheckInControlTrainerModal extends React.Component {
     constructor(props) {
@@ -29,6 +34,23 @@ class CheckInControlTrainerModal extends React.Component {
 
         return (<Button variant="primary" style={checkOutModalBodyStyle} onClick={() => this.setState({ isCheckOutConfirmed: true })}
             disabled={!this.state.checkOutCondition1 || !this.state.checkOutCondition2}>Cek-out trainer</Button>);
+    }
+
+    getSpecializationSymbol = specialization => {
+        switch (specialization) {
+            case "Angkat Beban":
+                return weightliftingSymbol;
+            case "Instruktur Senam":
+                return gymnasticSymbol;
+            case "Instruktur Renang":
+                return swimmingSymbol;
+            case "Badminton":
+                return badmintonSymbol;
+            case "Cardiovascular":
+                return cardioSymbol;
+            default:
+                return null;
+        }
     }
 
     render() {
@@ -53,7 +75,9 @@ class CheckInControlTrainerModal extends React.Component {
                             </tr>
                             <tr>
                                 <td><strong>Spesialisasi</strong></td>
-                                <td>{this.props.modalData.trainer.trainerSpecialization}</td>
+                                <td>{this.props.modalData.trainer.trainerSpecialization} &nbsp;
+                                <img src={this.getSpecializationSymbol(this.props.modalData.trainer.trainerSpecialization)}
+                                        alt="specialization-symbol" style={trainerSpecializationSymbolStyle} /></td>
                             </tr>
                             <tr>
                                 <td><strong>Tgl. cek-in</strong></td>
@@ -115,6 +139,10 @@ const rentalSymbolStyle = {
     width: '25px',
     marginRight: '8px'
 };
+
+const trainerSpecializationSymbolStyle = {
+    width: '30px'
+}
 
 const tableStyle = {
     textAlign: 'left'

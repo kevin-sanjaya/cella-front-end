@@ -11,7 +11,8 @@
         "memberStartDate": "2020-02-01",
         "memberExpiryDate": "2021-02-01",
         "memberDateOfBirth": "1995-08-28",
-        "memberAvatarSrc": "mock-avatar.svg"
+        "memberAvatarSrc": "mock-avatar.svg",
+        "memberExpiryWarning": true
     },
     {
         "memberId": "136703233276",
@@ -25,7 +26,8 @@
         "memberStartDate": "2017-10-20",
         "memberExpiryDate": "2021-08-20",
         "memberDateOfBirth": "1990-12-03",
-        "memberAvatarSrc": "mock-avatar.svg"
+        "memberAvatarSrc": "mock-avatar.svg",
+        "memberExpiryWarning": false
     },
     {
         "memberId": "596906273646",
@@ -37,8 +39,9 @@
         "memberEmergencyContact": "0315023140 Bpk Hendy",
         "memberOccupation": "Pegawai Swasta",
         "memberStartDate": "2019-08-30",
-        "memberExpiryDate": "2021-02-30",
+        "memberExpiryDate": "2021-02-28",
         "memberDateOfBirth": "1996-06-14",
-        "memberAvatarSrc": "mock-avatar.svg"
+        "memberAvatarSrc": "mock-avatar.svg",
+        "memberExpiryWarning": true
     }
 ]

@@ -58,7 +58,7 @@ class MemberInfo extends React.Component {
                         {this.renderMemberSubscriptionSymbol(this.props.member.memberSubscriptionTier)}</td>
                 </tr>
                 <tr>
-                    <td><strong>Member berlaku sampai</strong></td>
+                    <td><strong>Tgl. member berakhir</strong></td>
                     <td>{moment(this.props.member.memberExpiryDate).format("DD/MM/YYYY")}</td>
                 </tr>
             </tbody>
