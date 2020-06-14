@@ -8,6 +8,7 @@ import Trainers from './components/trainers/Trainers';
 import Members from './components/members/Members';
 import CCTV from './components/cctv/CCTV';
 import EmergencyContact from './components/emergency-contact/EmergencyContact';
+import Report from './components/report/Report';
 import Alert from './components/alert/Alert';
 import notFoundSymbol from './assets/404.svg';
 
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route path="/emergency-contact">
             <EmergencyContact />
+          </Route>
+          <Route path="/report">
+            <Report />
           </Route>
           <Route path="*">
             <Alert alertSymbol={notFoundSymbol} alertText="Mohon maaf, halaman ini tidak dapat ditemukan." />
