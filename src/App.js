@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Redirect, BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavigationBar from './components/navigation-bar/NavigationBar';
@@ -35,6 +35,9 @@ function App() {
           </Route>
           <Route path="/report">
             <Report />
+          </Route>
+          <Route path="/">
+            <Redirect to={{ pathname: "/check-in/member" }} />
           </Route>
           <Route path="*">
             <Alert alertSymbol={notFoundSymbol} alertText="Mohon maaf, halaman ini tidak dapat ditemukan." />
