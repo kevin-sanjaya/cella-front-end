@@ -7,9 +7,9 @@ function Trainers() {
     let { param } = useParams();
  
     if (param === 'all')
-        return <TrainerListRouteWrapper />
+        return (<TrainerListRouteWrapper />);
     
-    return <TrainerDetail trainerId={param} />
+    return (<TrainerDetail trainerId={param} />);
 }
 
 const TrainerListRouteWrapper = withRouter(({ history }) => (<TrainerList history={history} />));
